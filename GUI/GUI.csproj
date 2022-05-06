@@ -71,7 +71,7 @@
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -254,6 +254,9 @@
     <EmbeddedResource Include="Report\ReportHoaDon.rdlc" />
     <EmbeddedResource Include="UserControls\ucBanSanPham.resx">
       <DependentUpon>ucBanSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucKhachHang.resx">
+      <DependentUpon>ucKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucNhapSanPham.resx">
       <DependentUpon>ucNhapSanPham.cs</DependentUpon>
@@ -543,6 +546,10 @@
     <None Include="Resources\icons8_close_window_32px_16.png" />
     <None Include="Resources\icons8_close_window_32px1.png" />
     <None Include="Resources\icons8_close_window_32px2.png" />
+    <None Include="Resources\icons8_add_32px11.png" />
+    <None Include="Resources\icons8_add_32px_14.png" />
+    <None Include="Resources\delete1.png" />
+    <None Include="Resources\edit11.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

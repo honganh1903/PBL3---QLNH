@@ -12,7 +12,7 @@ namespace DAL
     {
         public static SqlConnection Openconnect()
         {
-            string sChuoiKetNoi = "Server=LAPTOP-3RHO7SBV;Database=PBL33333;User id=anh1903;pwd=anhmanucian";
+            string sChuoiKetNoi = "Data Source=desktop-mte3fhi;Initial Catalog=PBL33333;Integrated Security=True";
             SqlConnection con = new SqlConnection(sChuoiKetNoi);
             con.Open();
             return con;
