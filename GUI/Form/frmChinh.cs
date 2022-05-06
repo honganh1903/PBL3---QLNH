@@ -344,7 +344,7 @@ namespace GUI
                 //btnThongKe.Image = Properties.Resources.thietlap_black;
 
                 check_reset(btnThongKe);
-                AddControl("ucThietLap");
+                AddControl("ucThongKe");
             }
             if (btnThongKe.ForeColor == Color.White)
             {

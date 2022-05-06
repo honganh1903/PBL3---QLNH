@@ -205,6 +205,7 @@
             this.button9.TabIndex = 5;
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // frmLoaiSanPham
             // 
@@ -217,6 +218,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLoaiSanPham";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLoaiSanPham";
             this.Load += new System.EventHandler(this.frmLoaiSanPham_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

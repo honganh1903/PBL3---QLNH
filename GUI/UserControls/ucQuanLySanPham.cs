@@ -494,5 +494,54 @@ namespace GUI.UserControls
                 e.Handled = true;
             }
         }
+
+        private void txtGiaNhap_TextChanged(object sender, EventArgs e)
+        {
+            if (txtGiaNhap.Text != "")
+            {
+                System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+                decimal value = decimal.Parse(txtGiaNhap.Text, System.Globalization.NumberStyles.AllowThousands);
+                txtGiaNhap.Text = String.Format(culture, "{0:N0}", value);
+                txtGiaNhap.Select(txtGiaNhap.Text.Length, 0);
+            }
+        }
+
+        private void txtLoiNhuan_TextChanged(object sender, EventArgs e)
+        {
+            if (txtLoiNhuan.Text == "")
+            {
+                txtGiaBan.Clear();
+                return;
+            }
+            if (int.Parse(txtLoiNhuan.Text) > 0)
+            {
+                int n = int.Parse(txtGiaNhap.Text.Replace(",", "")) + ((int.Parse(txtGiaNhap.Text.Replace(",", "")) * int.Parse(txtLoiNhuan.Text.Replace(",", "")) / 100));
+                txtGiaBan.Text = ConvertTien((double)n);
+            }
+            else
+            {
+                txtGiaBan.Clear();
+            }
+        }
+
+        private string ConvertTien(double gia)
+        {
+            string giaban = gia.ToString();
+            string result = "";
+            int d = 0;
+            for (int i = giaban.Length - 1; i >= 0; i--)
+            {
+                d++;
+                result += giaban[i];
+                if (d == 3 && i != 0)
+                {
+                    result += ',';
+                    d = 0;
+                }
+            }
+            char[] charArray = result.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
+        }
     }
 }

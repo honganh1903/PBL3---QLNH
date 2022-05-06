@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(792, 428);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmThemLoaiSP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmThemLoaiSP";
             this.ResumeLayout(false);
 

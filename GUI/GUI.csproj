@@ -73,6 +73,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -261,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucSanPham.resx">
       <DependentUpon>ucSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucThongKe.resx">
+      <DependentUpon>ucThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -541,6 +545,10 @@
     <None Include="Resources\icons8_close_window_32px_16.png" />
     <None Include="Resources\icons8_close_window_32px1.png" />
     <None Include="Resources\icons8_close_window_32px2.png" />
+    <None Include="Resources\box1.png" />
+    <None Include="Resources\box2.png" />
+    <None Include="Resources\box3.png" />
+    <None Include="Resources\loading1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
