@@ -435,6 +435,7 @@
             // 
             // timerTime
             // 
+            this.timerTime.Interval = 1000;
             this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
             // 
             // pnControls
@@ -444,6 +445,7 @@
             this.pnControls.Name = "pnControls";
             this.pnControls.Size = new System.Drawing.Size(985, 595);
             this.pnControls.TabIndex = 3;
+            this.pnControls.Paint += new System.Windows.Forms.PaintEventHandler(this.pnControls_Paint);
             // 
             // frmChinh
             // 

@@ -243,5 +243,10 @@ namespace GUI.UserControls
             txtDoanhSo.Text = dgvKhachHang.SelectedRows[0].Cells["Doanh số"].Value.ToString();
             cboxTinhTrang.Checked = (Boolean)dgvKhachHang.SelectedRows[0].Cells["Đã xóa"].Value;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

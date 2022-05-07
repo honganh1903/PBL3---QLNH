@@ -202,7 +202,37 @@ namespace GUI.UserControls
 
         private void dgvSanPham_Click(object sender, EventArgs e)
         {
-
+            if (mapn != 0)
+            {
+                try
+                {
+                    if (dgvSanPham.SelectedRows.Count == 1)
+                    {
+                        ResetColorControls();
+                        DataGridViewRow dr = dgvSanPham.SelectedRows[0];
+                        txtMaSP.Text = dr.Cells["Mã SP"].Value.ToString().Trim();
+                        txtTenSP.Text = dr.Cells["Tên SP"].Value.ToString().Trim();
+                        txtDonGiaNhap.Text = dr.Cells["Đơn Giá Nhập"].Value.ToString().Trim();
+                    }
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+        }
+        private void ResetColorControls()
+        {
+            foreach (Control ctrl in panel11.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    if (ctrl.BackColor == Color.OrangeRed)
+                    {
+                        ctrl.BackColor = Color.White;
+                    }
+                }
+            }
         }
 
         private void btnLuu_Click_1(object sender, EventArgs e)

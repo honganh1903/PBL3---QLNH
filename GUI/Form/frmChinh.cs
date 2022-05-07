@@ -136,7 +136,6 @@ namespace GUI
                         {
                             btn.BackColor = Color.FromArgb(17, 145, 249);
                             btn.ForeColor = Color.White;
-                            //btn.Image = (Image)Properties.Resources.ResourceManager.GetObject(btn.AccessibleName + "_blue");
                         }
                         btn.FlatAppearance.MouseDownBackColor = Color.White;
                     }
@@ -192,7 +191,7 @@ namespace GUI
                 lbQuyen.Text = TaiKhoanBL.Instance.GetTenQuyen(frmDangNhap.Quyen);
                 lbTenNV.Text = NhanVienBL.Instance.GetTenNhanVien(frmDangNhap.TenDangNhap);
                 btnSanPham.Enabled = false;
-                btnTrangChu.Enabled = false;
+                btnThongKe.Enabled = false;
                 btnNhapSanPham.Enabled = false;
                 btnBanSanPham.PerformClick();
             }
@@ -200,7 +199,7 @@ namespace GUI
             {
                 lbQuyen.Text = TaiKhoanBL.Instance.GetTenQuyen(frmDangNhap.Quyen);
                 lbTenNV.Text = NhanVienBL.Instance.GetTenNhanVien(frmDangNhap.TenDangNhap);
-                btnThongKe.PerformClick();
+                btnTrangChu.PerformClick();
             }
         }
 
@@ -379,5 +378,9 @@ namespace GUI
             Cursor = Cursors.Default;
         }
 
+        private void pnControls_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

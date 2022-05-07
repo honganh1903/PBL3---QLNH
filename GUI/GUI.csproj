@@ -554,6 +554,9 @@
     <None Include="Resources\box2.png" />
     <None Include="Resources\box3.png" />
     <None Include="Resources\loading1.png" />
+    <None Include="Resources\icons8_ok_32px6.png" />
+    <None Include="Resources\searching-magnifying-glass1.png" />
+    <None Include="Resources\icons8_add_32px_15.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
