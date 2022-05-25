@@ -43,11 +43,13 @@
   <ItemGroup>
     <Compile Include="CTHDDTO.cs" />
     <Compile Include="CTPNDTO.cs" />
+    <Compile Include="CTSPDTO.cs" />
     <Compile Include="DoanhThuDTO.cs" />
     <Compile Include="HoaDonDTO.cs" />
     <Compile Include="KhachHangDTO.cs" />
     <Compile Include="LoaiSPDTO.cs" />
     <Compile Include="NCCDTO.cs" />
+    <Compile Include="NguyenLieuDTO.cs" />
     <Compile Include="NhanVienDTO.cs" />
     <Compile Include="PhieuNhapDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

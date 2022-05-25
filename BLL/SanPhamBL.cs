@@ -72,6 +72,6 @@ namespace BLL
         {
             return SanPhamDL.Instance.GetDanhSachSanPham();
         }
-
+        
     }
 }

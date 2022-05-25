@@ -591,6 +591,7 @@
             this.dgvPhieuNhap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPhieuNhap.Size = new System.Drawing.Size(608, 204);
             this.dgvPhieuNhap.TabIndex = 2;
+            this.dgvPhieuNhap.Click += new System.EventHandler(this.dgvPhieuNhap_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -626,7 +627,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(608, 42);
             this.label4.TabIndex = 57;
-            this.label4.Text = "Danh Sách Sản Phẩm";
+            this.label4.Text = "Danh Sách Nguyên Liệu";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel4

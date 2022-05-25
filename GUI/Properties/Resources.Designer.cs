@@ -253,6 +253,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close2 {
+            get {
+                object obj = ResourceManager.GetObject("close2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap color_circle {
             get {
                 object obj = ResourceManager.GetObject("color_circle", resourceCulture);
@@ -423,6 +433,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_32px_111 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_add_32px_111", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_add_32px_12 {
             get {
                 object obj = ResourceManager.GetObject("icons8_add_32px_12", resourceCulture);
@@ -453,6 +473,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_32px_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_add_32px_15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_add_32px1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_add_32px1", resourceCulture);
@@ -466,6 +496,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap icons8_add_32px11 {
             get {
                 object obj = ResourceManager.GetObject("icons8_add_32px11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_32px2 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_add_32px2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -553,6 +593,26 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_window_32px_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_close_window_32px_15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_window_32px_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_close_window_32px_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_close_window_32px1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_close_window_32px1", resourceCulture);
@@ -566,6 +626,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap icons8_close_window_32px2 {
             get {
                 object obj = ResourceManager.GetObject("icons8_close_window_32px2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_window_32px3 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_close_window_32px3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

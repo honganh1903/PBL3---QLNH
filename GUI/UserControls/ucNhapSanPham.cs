@@ -27,7 +27,7 @@ namespace GUI.UserControls
 
         private void ucNhapSanPham_Load(object sender, EventArgs e)
         {
-            dgvSanPham.DataSource = SanPhamBL.Instance.GetDanhSachSanPham();
+            dgvSanPham.DataSource = NguyenLieuBL.Instance.GetDanhSachNguyenLieu();
             dgvSanPham.ClearSelection();
             dgvPhieuNhap.DataSource = PhieuNhapBL.Instance.GetDanhSachPhieuNhap();
             dgvPhieuNhap.ClearSelection();
@@ -50,7 +50,7 @@ namespace GUI.UserControls
                 pnDTO.MaNCC = frm.MANCC;
                 mancc = pnDTO.MaNCC;
                 pnDTO.NgayLap = DateTime.Now;
-                dgvSanPham.DataSource = SanPhamBL.Instance.GetDanhSachSanPhamTheoNCC(mancc);
+                dgvSanPham.DataSource = NguyenLieuBL.Instance.GetDanhSachNguyenLieuTheoNCC(mancc);
                 if (dgvSanPham.Rows.Count > 0)
                 {
                     if (PhieuNhapBL.Instance.ThemPhieuNhap(pnDTO))
@@ -102,7 +102,7 @@ namespace GUI.UserControls
                 frmtt.Show();
                 return;
             }
-            dgvCTPN.Rows.Insert(dgvCTPN.Rows.Count, txtMaSP.Text, mapn.ToString(), frmDangNhap.TenDangNhap, SanPhamBL.Instance.GetTenSP(int.Parse(txtMaSP.Text)), txtDonGiaNhap.Text, txtSoLuong.Text);
+            dgvCTPN.Rows.Insert(dgvCTPN.Rows.Count, txtMaSP.Text, mapn.ToString(), frmDangNhap.TenDangNhap, NguyenLieuBL.Instance.GetTenNL(int.Parse(txtMaSP.Text)), txtDonGiaNhap.Text, txtSoLuong.Text);
             txtMaSP.Clear();
             txtTenSP.Clear();
             txtSoLuong.Clear();
@@ -174,7 +174,7 @@ namespace GUI.UserControls
                 this.Alert("Đã xác nhận hàng đã về kho...", frmPopupNotification.enmType.Success);
                 dgvPhieuNhap.DataSource = PhieuNhapBL.Instance.GetDanhSachPhieuNhap();
                 dgvPhieuNhap.ClearSelection();
-                dgvSanPham.DataSource = SanPhamBL.Instance.GetDanhSachSanPham();
+                dgvSanPham.DataSource = NguyenLieuBL.Instance.GetDanhSachNguyenLieu();
                 dgvSanPham.ClearSelection();
                 btnXacNhan.Enabled = false;
                 btnXacNhan.BackColor = Color.Gray;
@@ -210,8 +210,8 @@ namespace GUI.UserControls
                     {
                         ResetColorControls();
                         DataGridViewRow dr = dgvSanPham.SelectedRows[0];
-                        txtMaSP.Text = dr.Cells["Mã SP"].Value.ToString().Trim();
-                        txtTenSP.Text = dr.Cells["Tên SP"].Value.ToString().Trim();
+                        txtMaSP.Text = dr.Cells["Mã NL"].Value.ToString().Trim();
+                        txtTenSP.Text = dr.Cells["Tên NL"].Value.ToString().Trim();
                         txtDonGiaNhap.Text = dr.Cells["Đơn Giá Nhập"].Value.ToString().Trim();
                     }
                 }
@@ -278,5 +278,7 @@ namespace GUI.UserControls
                 btnTaoPhieu.BackColor = Color.FromArgb(17, 145, 249);
             }
         }
+
+
     }
 }

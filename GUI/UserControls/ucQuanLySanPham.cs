@@ -51,9 +51,9 @@ namespace GUI.UserControls
 
         private void LoadCboNCC()
         {
-            cboNCC.DataSource = NCCBL.Instance.GetDanhSachNCC();
-            cboNCC.DisplayMember = "Tên NCC";
-            cboNCC.ValueMember = "Mã NCC";
+            //cboNCC.DataSource = NCCBL.Instance.GetDanhSachNCC();
+            //cboNCC.DisplayMember = "Tên NCC";
+            //cboNCC.ValueMember = "Mã NCC";
         }
 
         private void ucQuanLySanPham_Load(object sender, EventArgs e)
@@ -130,10 +130,7 @@ namespace GUI.UserControls
                     masp = int.Parse(dr.Cells["Mã SP"].Value.ToString().Trim());
                     txtTen.Text = dr.Cells["Tên SP"].Value.ToString().Trim();
                     cboLoai.SelectedValue = dr.Cells["Mã Loại SP"].Value.ToString();
-                    cboNCC.SelectedValue = dr.Cells["Mã NCC"].Value.ToString();
                     cboDVT.SelectedItem = dr.Cells["ĐVT"].Value.ToString();
-                    dateNgaySX.Value = Convert.ToDateTime(dr.Cells["Ngày SX"].Value);
-                    dateNgayHetHan.Value = Convert.ToDateTime(dr.Cells["Ngày Hết Hạn"].Value);
                     txtGiaNhap.Text = dr.Cells["Đơn Giá Nhập"].Value.ToString().Trim();
                     txtLoiNhuan.Text = dr.Cells["Lợi Nhuận"].Value.ToString().Trim();
                     txtGiaBan.Text = dr.Cells["Đơn Giá Bán"].Value.ToString().Trim();
@@ -177,29 +174,19 @@ namespace GUI.UserControls
             cboDVT.SelectedIndex = 0;
             if (cboLoai.Items.Count > 0)
                 cboLoai.SelectedIndex = 0;
-            if (cboNCC.Items.Count > 0)
-                cboNCC.SelectedIndex = 0;
-            dateNgaySX.Value = DateTime.Now;
-            dateNgayHetHan.Value = DateTime.Now;
             picHinhAnh.Image = null;
             ResetColorControls();
         }
 
         private void btnThemLoaiSP_Click(object sender, EventArgs e)
         {
-            ((frmChinh)this.Parent.Parent).Opacity = 0.8;
             frmThemLoaiSP frm = new frmThemLoaiSP();
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.OK)
             {
-                ((frmChinh)this.Parent.Parent).Opacity = 1;
                 LoadCboLoaiSP();
                 cboLoai.SelectedIndex = cboLoai.Items.Count - 1;
                 LoadCboLocLoaiSP();
-            }
-            else
-            {
-                ((frmChinh)this.Parent.Parent).Opacity = 1;
             }
         }
 
@@ -288,15 +275,11 @@ namespace GUI.UserControls
                     {
                         if (int.Parse(txtLoiNhuan.Text) > 0)
                         {
-                            if (CheckDate())
-                            {
+
                                 SanPhamDTO spDTO = new SanPhamDTO();
                                 spDTO.TenSP = txtTen.Text;
                                 spDTO.MaLoaiSP = cboLoai.SelectedValue.ToString().Trim();
-                                spDTO.MaNCC = int.Parse(cboNCC.SelectedValue.ToString().Trim());
                                 spDTO.DVT = cboDVT.SelectedItem.ToString();
-                                spDTO.NgaySanXuat = dateNgaySX.Value;
-                                spDTO.NgayHetHan = dateNgayHetHan.Value;
                                 spDTO.GiaNhap = decimal.Parse(txtGiaNhap.Text);
                                 spDTO.LoiNhuan = int.Parse(txtLoiNhuan.Text);
                                 spDTO.GiaBan = decimal.Parse(txtGiaBan.Text);
@@ -305,15 +288,12 @@ namespace GUI.UserControls
                                 spDTO.HinhAnh = ImageToByteArray(img);
 
                                 cboLocLoaiSP.SelectedIndex = cboLoai.SelectedIndex;
-                                cboLocNCC.SelectedIndex = cboNCC.SelectedIndex;
-
                                 if (SanPhamBL.Instance.ThemSanPham(spDTO))
                                 {
                                     this.Alert("Đã thêm sản phẩm thành công...", frmPopupNotification.enmType.Success);
                                     LoadDataGridViewTheoBoLoc();
                                     LamMoi();
                                 }
-                            }
                         }
                         else
                         {
@@ -343,14 +323,7 @@ namespace GUI.UserControls
                 frm.ShowDialog();
             }
         }
-        private bool CheckDate()
-        {
-            if (dateNgaySX.Value >= dateNgayHetHan.Value)
-            {
-                return false;
-            }
-            return true;
-        }
+
 
         private void btnCapNhatSP_Click(object sender, EventArgs e)
         {
@@ -362,13 +335,9 @@ namespace GUI.UserControls
                     {
                         if (int.Parse(txtLoiNhuan.Text) > 0)
                         {
-                            if (CheckDate())
-                            {
                                 SanPhamDTO spDTO = new SanPhamDTO();
                                 spDTO.MaSP = masp;
                                 spDTO.TenSP = txtTen.Text;
-                                spDTO.NgaySanXuat = dateNgaySX.Value;
-                                spDTO.NgayHetHan = dateNgayHetHan.Value;
                                 spDTO.LoiNhuan = int.Parse(txtLoiNhuan.Text);
                                 spDTO.GiaNhap = decimal.Parse(txtGiaNhap.Text);
                                 spDTO.GiaBan = decimal.Parse(txtGiaBan.Text);
@@ -377,7 +346,6 @@ namespace GUI.UserControls
                                 spDTO.HinhAnh = ImageToByteArray(img);
 
                                 cboLocLoaiSP.SelectedIndex = cboLoai.SelectedIndex;
-                                cboLocNCC.SelectedIndex = cboNCC.SelectedIndex;
 
                                 if (SanPhamBL.Instance.SuaSanPham(spDTO))
                                 {
@@ -389,13 +357,6 @@ namespace GUI.UserControls
                                 {
                                     this.Alert("Cập nhật thất bại...", frmPopupNotification.enmType.Success);
                                 }
-                            }
-                            else
-                            {
-                                frmThongBao frm = new frmThongBao();
-                                frm.lblThongBao.Text = "Ngày hết hạn phải sau ngày sản xuất";
-                                frm.ShowDialog();
-                            }
                         }
                         else
                         {
@@ -464,20 +425,7 @@ namespace GUI.UserControls
 
         private void btnThemNCC_Click(object sender, EventArgs e)
         {
-            ((frmChinh)this.Parent.Parent).Opacity = 0.8;
-            frmThemNCC frm = new frmThemNCC();
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
-            {
-                ((frmChinh)this.Parent.Parent).Opacity = 1;
-                LoadCboNCC();
-                cboNCC.SelectedIndex = cboNCC.Items.Count - 1;
-                LoadCboLocNCC();
-            }
-            else
-            {
-                ((frmChinh)this.Parent.Parent).Opacity = 1;
-            }
+
         }
 
         private void txtGiaBan_KeyPress(object sender, KeyPressEventArgs e)
@@ -542,6 +490,16 @@ namespace GUI.UserControls
             char[] charArray = result.ToCharArray();
             Array.Reverse(charArray);
             return new string(charArray);
+        }
+
+        private void btnThemTP_Click(object sender, EventArgs e)
+        {
+            frmThemTP frm = new frmThemTP(masp);
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                
+            }
         }
     }
 }

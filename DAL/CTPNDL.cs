@@ -30,7 +30,7 @@ namespace DAL
                 int rows = 0;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    string sql = "INSERT INTO CHITIETPHIEUNHAP VALUES('" + MAPN + "','" + dt.Rows[i][0].ToString() + "','" + dt.Rows[i][5].ToString() + "','" + dt.Rows[i][4].ToString() + "')";
+                    string sql = "INSERT INTO CHITIETPHIEUNHAP VALUES('" + MAPN + "','" + dt.Rows[i][5].ToString() + "','" + dt.Rows[i][4].ToString() + "','" + dt.Rows[i][0].ToString() + "')";
                     rows = DataAccess.JustExcuteNoParameter(sql);
                     //SanPhamDL.CapNhatSoLuong(int.Parse(dt.Rows[i][0].ToString()), int.Parse(dt.Rows[i][5].ToString()));
                 }
@@ -56,7 +56,7 @@ namespace DAL
         {
             try
             {
-                string sql = "SELECT MASP, SOLUONG FROM CHITIETPHIEUNHAP WHERE MAPHIEU=" + MAPN;
+                string sql = "SELECT MANL, SOLUONG FROM CHITIETPHIEUNHAP WHERE MAPHIEU=" + MAPN;
                 DataTable dt = new DataTable();
                 dt = DataAccess.GetTable(sql);
                 return dt;

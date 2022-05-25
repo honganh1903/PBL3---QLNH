@@ -97,7 +97,7 @@ namespace DAL
                 DataTable dt = CTPNDL.Instance.GetDanhSachPhieuNhap(MaPhieu);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    SanPhamDL.Instance.CapNhatSoLuong(int.Parse(dt.Rows[i][0].ToString()), int.Parse(dt.Rows[i][1].ToString()));
+                    NguyenLieuDL.Instance.CapNhatSoLuong(int.Parse(dt.Rows[i][0].ToString()), int.Parse(dt.Rows[i][1].ToString()));
                 }
                 return true;
             }
@@ -114,7 +114,7 @@ namespace DAL
         {
             try
             {
-                string sql = "DELETE PHIEUNHAP WHERE MAPHIEU=" + MAPN;
+                string sql = "DELETE PHIEUNHAP WHERE MAPHIEU = " + MAPN;
                 int rows = DataAccess.JustExcuteNoParameter(sql);
                 if (rows > 0)
                 {

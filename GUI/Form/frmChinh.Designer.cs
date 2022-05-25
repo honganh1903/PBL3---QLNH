@@ -430,7 +430,7 @@
             // 
             // timerPanel
             // 
-            this.timerPanel.Interval = 5;
+            this.timerPanel.Interval = 6;
             this.timerPanel.Tick += new System.EventHandler(this.timerPanel_Tick);
             // 
             // timerTime

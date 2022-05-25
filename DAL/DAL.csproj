@@ -43,12 +43,14 @@
   <ItemGroup>
     <Compile Include="CTHDDL.cs" />
     <Compile Include="CTPNDL.cs" />
+    <Compile Include="CTSPDL.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="HoaDonDL.cs" />
     <Compile Include="KhachHangDL.cs" />
     <Compile Include="LoaiNhanVienDL.cs" />
     <Compile Include="LoaiSanPhamDL.cs" />
     <Compile Include="NCCDL.cs" />
+    <Compile Include="NguyenLieuDL.cs" />
     <Compile Include="NhanVienDL.cs" />
     <Compile Include="PhieuNhapDL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

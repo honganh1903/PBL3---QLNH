@@ -25,7 +25,7 @@ namespace BLL
         private CTPNBL() { }
         public bool ThemCTPN(DataTable dt, int MAPN)
         {
-            return CTPNDL.Instance.ThemCTPN(dt, MAPN);
+            return CTPNDL.Instance. ThemCTPN(dt, MAPN);
         }
     }
 }

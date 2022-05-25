@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class CTPNDTO
+    public class CTSPDTO
     {
-        public int MaCTPN { get; set; }
-        public int MaPN { get; set; }
+        public int MaCTSP { get; set; }
+
+        public int MaSP { get; set; }
         public int MaNL { get; set; }
         public int SoLuong { get; set; }
-        public decimal DonGiaNhap { get; set; }
     }
 }
