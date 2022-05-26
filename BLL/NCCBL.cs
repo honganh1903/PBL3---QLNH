@@ -28,6 +28,10 @@ namespace BLL
         {
             return NCCDL.Instance.GetDanhSachNCC();
         }
+        public DataTable GetDanhSachNCCFull()
+        {
+            return NCCDL.Instance.GetDanhSachNCCFull();
+        }
         public bool ThemNCC(NhaCungCapDTO nccDTO)
         {
             return NCCDL.Instance.ThemNCC(nccDTO);
@@ -52,5 +56,6 @@ namespace BLL
         {
             return NCCDL.Instance.CheckMaNCC(MANCC);
         }
+
     }
 }

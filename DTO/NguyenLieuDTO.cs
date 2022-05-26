@@ -12,7 +12,7 @@ namespace DTO
         public string TenNL { get; set; }
         public string DVT { get; set; }
         public decimal DonGiaNhap { get; set; }
-        public string MaNCC{ get; set; }
+        public int MaNCC{ get; set; }
         public int SoLuong { get; set; }
     }
 }
