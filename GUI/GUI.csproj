@@ -566,6 +566,7 @@
     <None Include="Resources\icons8_ok_32px6.png" />
     <None Include="Resources\searching-magnifying-glass1.png" />
     <None Include="Resources\icons8_add_32px_15.png" />
+    <None Include="Resources\icons8_trash_can_32px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

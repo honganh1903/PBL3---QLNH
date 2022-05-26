@@ -30,7 +30,7 @@ namespace DAL
         {
             try
             {
-                string sql = "SELECT nguyenlieu.MANL as N'Mã NL',nguyenlieu.TENNL as N'Tên NL',DVT as N'ĐVT',CTSP.SOLUONG as N'Số Lượng', DONGIANHAP as N'Đơn Giá Nhập' FROM NGUYENLIEU join CTSP on NGUYENLIEU.MANL = ctsp.MANL WHERE MASP=" + MASP;
+                string sql = "SELECT CTSP.MACTSP as 'Mã CTSP',nguyenlieu.MANL as N'Mã NL',nguyenlieu.TENNL as N'Tên NL',DVT as N'ĐVT',CTSP.SOLUONG as N'Số Lượng', DONGIANHAP as N'Đơn Giá Nhập' FROM NGUYENLIEU join CTSP on NGUYENLIEU.MANL = ctsp.MANL WHERE MASP=" + MASP;
                 DataTable dt = new DataTable();
                 dt = DataAccess.GetTable(sql);
                 return dt;
@@ -48,13 +48,15 @@ namespace DAL
         {
             try
             {
-                int rows = 0;
                 string sql;
                 bool check = CheckNL(MANL,MASP);
-                if (check == true) { sql = "INSERT INTO CTSP VALUES('" + MASP + "','" + MANL + "','" + SoLuong + "')"; }
-
+                if (check == true) 
+                {
+                    sql = "INSERT INTO CTSP VALUES('" + MASP + "','" + MANL + "','" + SoLuong + "')"; 
+                }
                 else
-                    sql = "UPDATE CTSP SET SOLUONG= '"+ SoLuong+" WHERE MASP="+ MASP+" AND MANL = "+MANL+" ";
+                    sql = "UPDATE CTSP SET SOLUONG= '"+ SoLuong+"' WHERE MASP='"+ MASP+"' AND MANL = '"+MANL+"' ";
+                int rows = 0;
                 rows = DataAccess.JustExcuteNoParameter(sql);
                 if (rows > 0)
                 {
@@ -75,15 +77,94 @@ namespace DAL
 
         public bool CheckNL(int MANL,int MASP)
         {
-            string sql = "SELECT *  FROM SANPHAM join CTSP on SANPHAM.MASP = ctsp.MASP where MANL ='" + MANL + "' AND MASP = '" + MASP + "' ";
-            DataTable dt = new DataTable();
-            dt = DataAccess.GetTable(sql);
-            if (dt.Rows.Count > 0)
+            try
             {
-                return false;
+                string sql = "SELECT *  FROM SANPHAM join CTSP on SANPHAM.MASP = ctsp.MASP where MANL ='" + MANL + "' AND CTSP.MASP = '" + MASP + "' ";
+                DataTable dt = new DataTable();
+                dt = DataAccess.GetTable(sql);
+                if (dt.Rows.Count > 0)
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return true;
             }
             return true;
         }
+
+        #region Xóa Thành Phần
+        public bool XoaTP(int MACTSP,int manl)
+        {
+            try
+            {
+                string sql = "DELETE CTSP WHERE MACTSP = '" + MACTSP+"' AND MANL = '"+manl +"'" ;
+                int rows = DataAccess.JustExcuteNoParameter(sql);
+                if (rows > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi database: " + ex.Message);
+                return false;
+            }
+        }
+        #endregion
+
+        #region Lấy Tổng Giá Nhập
+        public double GetTongGiaNhap(int masp)
+        {
+            try
+            {
+                string sql = "SELECT SUM(CTSP.SOLUONG*DONGIANHAP) from CTSP inner join NGUYENLIEU on NGUYENLIEU.MANL = CTSP.MANL where MASP = " + masp;
+                DataTable dt = new DataTable();
+                dt = DataAccess.GetTable(sql);
+                double giavon = double.Parse(dt.Rows[0][0].ToString());
+                return giavon;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        #endregion
+
+        #region Cập Nhật Giá Vốn
+        public bool CapNhatGiaVon(int masp)
+        {
+            try {
+                double giavon = GetTongGiaNhap(masp);
+                string sql = "UPDATE SANPHAM SET DONGIABAN=@DONGIABAN WHERE MASP = @MASP";
+                SqlConnection con = DataAccess.Openconnect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@MASP", masp);
+                cmd.Parameters.AddWithValue("@DONGIABAN", giavon);
+                cmd.Connection = con;
+                int rows = cmd.ExecuteNonQuery();
+                DataAccess.Disconnect(con);
+                if (rows > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception ex) 
+            {
+                return false; 
+            }
+        }
+        #endregion
     }
 }
 

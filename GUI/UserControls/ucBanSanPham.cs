@@ -107,11 +107,10 @@ namespace GUI.UserControls
                 sp.spDTO.TenSP = dt.Rows[i].ItemArray[1].ToString();
                 sp.spDTO.MaLoaiSP = dt.Rows[i].ItemArray[2].ToString();
                 sp.spDTO.DVT = dt.Rows[i].ItemArray[3].ToString();
-                sp.spDTO.MaNCC = int.Parse(dt.Rows[i].ItemArray[4].ToString());
-                sp.spDTO.SoLuong = int.Parse(dt.Rows[i].ItemArray[7].ToString());
-                sp.spDTO.GiaBan = decimal.Parse(dt.Rows[i].ItemArray[10].ToString());
-                sp.spDTO.KhuyenMai = int.Parse(dt.Rows[i].ItemArray[11].ToString());
-                sp.spDTO.HinhAnh = (byte[])dt.Rows[i].ItemArray[12];
+                sp.spDTO.SoLuong = int.Parse(dt.Rows[i].ItemArray[4].ToString());
+                sp.spDTO.GiaBan = decimal.Parse(dt.Rows[i].ItemArray[7].ToString());
+                sp.spDTO.KhuyenMai = int.Parse(dt.Rows[i].ItemArray[8].ToString());
+                sp.spDTO.HinhAnh = (byte[])dt.Rows[i].ItemArray[9];
                 MemoryStream ms = new MemoryStream(sp.spDTO.HinhAnh);
                 sp.picSP.Image = Image.FromStream(ms);
 

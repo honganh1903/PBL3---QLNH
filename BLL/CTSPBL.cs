@@ -32,5 +32,17 @@ namespace BLL
         {
             return CTSPDL.Instance.ThemThanhPhan(MASP, MANL, SoLuong);
         }
+        public bool XoaTP(int MaCTSP,int manl)
+        {
+            return CTSPDL.Instance.XoaTP(MaCTSP,manl);
+        }
+        public bool CapNhatGiaVon(int masp)
+        {
+            return CTSPDL.Instance.CapNhatGiaVon(masp);
+        }
+        public bool CheckNL(int masp)
+        {
+            return CTSPBL.Instance.CheckNL(masp);
+        }
     }
 }

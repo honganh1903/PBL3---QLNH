@@ -263,6 +263,36 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close3 {
+            get {
+                object obj = ResourceManager.GetObject("close3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close4 {
+            get {
+                object obj = ResourceManager.GetObject("close4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close5 {
+            get {
+                object obj = ResourceManager.GetObject("close5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap color_circle {
             get {
                 object obj = ResourceManager.GetObject("color_circle", resourceCulture);
@@ -736,6 +766,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap icons8_search_24px1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_search_24px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_trash_can_32px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_trash_can_32px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

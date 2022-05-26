@@ -12,9 +12,6 @@ namespace DTO
         public string TenSP { get; set; }
         public string MaLoaiSP { get; set; }
         public string DVT { get; set; }
-        public int MaNCC { get; set; }
-        public DateTime NgaySanXuat { get; set; }
-        public DateTime NgayHetHan { get; set; }
         public int SoLuong { get; set; }
         public decimal GiaNhap { get; set; }
         public int LoiNhuan { get; set; }

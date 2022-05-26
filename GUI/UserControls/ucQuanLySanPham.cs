@@ -134,7 +134,6 @@ namespace GUI.UserControls
                     txtGiaNhap.Text = dr.Cells["Đơn Giá Nhập"].Value.ToString().Trim();
                     txtLoiNhuan.Text = dr.Cells["Lợi Nhuận"].Value.ToString().Trim();
                     txtGiaBan.Text = dr.Cells["Đơn Giá Bán"].Value.ToString().Trim();
-                    txtSoLuong.Text = dr.Cells["Số Lượng"].Value.ToString().Trim();
                     txtKhuyenMai.Text = dr.Cells["Khuyến Mãi"].Value.ToString().Trim();
                     MemoryStream ms = new MemoryStream((byte[])dgvSanPham.CurrentRow.Cells["Hình Ảnh"].Value‌​);
                     picHinhAnh.Image = Image.FromStream(ms);
@@ -164,11 +163,10 @@ namespace GUI.UserControls
         }
         private void LamMoi()
         {
+            masp = 0;
             txtTen.Clear();
-            txtSoLuong.Clear();
             txtKhuyenMai.Clear();
             txtGiaBan.Clear();
-            txtSoLuong.Clear();
             txtGiaNhap.Clear();
             txtLoiNhuan.Clear();
             cboDVT.SelectedIndex = 0;
@@ -275,7 +273,8 @@ namespace GUI.UserControls
                     {
                         if (int.Parse(txtLoiNhuan.Text) > 0)
                         {
-
+                            if (CTSPBL.Instance.CheckNL(masp)==false)
+                            {
                                 SanPhamDTO spDTO = new SanPhamDTO();
                                 spDTO.TenSP = txtTen.Text;
                                 spDTO.MaLoaiSP = cboLoai.SelectedValue.ToString().Trim();
@@ -293,7 +292,14 @@ namespace GUI.UserControls
                                     this.Alert("Đã thêm sản phẩm thành công...", frmPopupNotification.enmType.Success);
                                     LoadDataGridViewTheoBoLoc();
                                     LamMoi();
-                                }
+                                } 
+                            }
+                            else
+                            {
+                                frmThongBao frm = new frmThongBao();
+                                frm.lblThongBao.Text = "Bạn chưa nhập thành phần sản phẩm !!";
+                                frm.ShowDialog();
+                            }
                         }
                         else
                         {
@@ -316,6 +322,12 @@ namespace GUI.UserControls
                     frm.ShowDialog();
                 }
             }
+            else if(txtGiaBan.Text == "")
+            {
+                frmThongBao frm = new frmThongBao();
+                frm.lblThongBao.Text = "Bạn chưa nhập thành phần sản phẩm";
+                frm.ShowDialog();
+            }
             else
             {
                 frmThongBao frm = new frmThongBao();
@@ -335,6 +347,8 @@ namespace GUI.UserControls
                     {
                         if (int.Parse(txtLoiNhuan.Text) > 0)
                         {
+                            if (CTSPBL.Instance.CheckNL(masp) == false)
+                            {
                                 SanPhamDTO spDTO = new SanPhamDTO();
                                 spDTO.MaSP = masp;
                                 spDTO.TenSP = txtTen.Text;
@@ -357,6 +371,13 @@ namespace GUI.UserControls
                                 {
                                     this.Alert("Cập nhật thất bại...", frmPopupNotification.enmType.Success);
                                 }
+                            }
+                            else
+                            {
+                                frmThongBao frm = new frmThongBao();
+                                frm.lblThongBao.Text = "Bạn chưa nhập thành phần sản phẩm !!";
+                                frm.ShowDialog();
+                            }
                         }
                         else
                         {
@@ -407,13 +428,6 @@ namespace GUI.UserControls
             }
         }
 
-        private void txtSoLuong_Click(object sender, EventArgs e)
-        {
-            if (txtSoLuong.BackColor == Color.OrangeRed)
-            {
-                txtSoLuong.BackColor = Color.White;
-            }
-        }
 
         private void txtKhuyenMai_Click(object sender, EventArgs e)
         {
@@ -461,7 +475,7 @@ namespace GUI.UserControls
                 txtGiaBan.Clear();
                 return;
             }
-            if (int.Parse(txtLoiNhuan.Text) > 0)
+            if (int.Parse(txtLoiNhuan.Text) > 0 && txtGiaBan.Text !="")
             {
                 int n = int.Parse(txtGiaNhap.Text.Replace(",", "")) + ((int.Parse(txtGiaNhap.Text.Replace(",", "")) * int.Parse(txtLoiNhuan.Text.Replace(",", "")) / 100));
                 txtGiaBan.Text = ConvertTien((double)n);
@@ -498,7 +512,7 @@ namespace GUI.UserControls
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.OK)
             {
-                
+                CTSPBL.Instance.CapNhatGiaVon(masp);
             }
         }
     }
