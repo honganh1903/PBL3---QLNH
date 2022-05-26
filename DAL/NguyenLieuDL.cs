@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-
+using DTO;
 namespace DAL
 {
     public class NguyenLieuDL
@@ -22,6 +22,7 @@ namespace DAL
                 return _Instance;
             }
         }
+        private NguyenLieuDL() { }
         #region Lấy Danh Sách Nguyên Liệu
         public DataTable GetDanhSachNguyenLieu()
         {
@@ -74,6 +75,7 @@ namespace DAL
             }
         }
         #endregion
+
         #region Cập Nhật Số Lượng
         public bool CapNhatSoLuong(int MaNL, int SoLuong)
         {
@@ -88,6 +90,78 @@ namespace DAL
                 cmd.Connection = con;
                 int rows = cmd.ExecuteNonQuery();
                 DataAccess.Disconnect(con);
+                if (rows > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi database: " + ex.Message);
+                return false;
+            }
+        }
+        #endregion
+
+        #region Thêm nguyên liệu
+        public bool ThemNL(NguyenLieuDTO nlDTO)
+        {
+            try
+            {
+                string sql = "INSERT INTO NGUYENLIEU(TENNL,DVT,DONGIANHAP,MANCC,SOLUONG) VALUES(N'" + nlDTO.TenNL + "',N'" + nlDTO.DVT + "','" + nlDTO.DonGiaNhap + "',N'" + nlDTO.MaNCC + "',N'" + nlDTO.SoLuong+ "')";
+                int rows = DataAccess.JustExcuteNoParameter(sql);
+                if (rows > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi database: " + ex.Message);
+                return false;
+            }
+        }
+        #endregion
+
+        #region Cập Nhật Nguyên Liệu
+        public bool CapNhatNL(NguyenLieuDTO nlDTO)
+        {
+            try
+            {
+                string sql = "UPDATE NGUYENLIEU SET TENNL=N'" + nlDTO.TenNL + "',DVT=N'" + nlDTO.DVT + "',DONGIANHAP='" + nlDTO.DonGiaNhap + "',MANCC=N'" + nlDTO.MaNCC +"',SOLUONG=N'"+ nlDTO.SoLuong+"' WHERE MANL='" +nlDTO.MaNL+ "'";
+                int rows = DataAccess.JustExcuteNoParameter(sql);
+                if (rows > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // MessageBox.Show("Lỗi database: " + ex.Message);
+                return false;
+            }
+        }
+        #endregion
+
+        #region Xóa nguyên liệu
+        public bool XoaNguyenLieu(int nlDTO)
+        {
+            try
+            {
+                string sql = "DELETE FROM NGUYENLIEU WHERE MANL = "+nlDTO;
+                int rows = DataAccess.JustExcuteNoParameter(sql);
                 if (rows > 0)
                 {
                     return true;

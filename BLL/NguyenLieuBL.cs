@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using DAL;
 using System.Threading.Tasks;
-
+using DTO;
 namespace BLL
 {
     public class NguyenLieuBL
@@ -14,7 +14,7 @@ namespace BLL
         public static NguyenLieuBL Instance
         {
             get
-            {
+            { 
                 if (_Instance == null)
                 {
                     _Instance = new NguyenLieuBL();
@@ -34,6 +34,18 @@ namespace BLL
         public DataTable GetDanhSachNguyenLieuTheoNCC(int MANCC)
         {
             return NguyenLieuDL.Instance.GetDanhSachNguyenLieuTheoNCC(MANCC);
+        }
+        public bool ThemNL(NguyenLieuDTO nlDTO)
+        {
+            return NguyenLieuDL.Instance.ThemNL(nlDTO);
+        }
+        public bool CapNhatNL(NguyenLieuDTO nlDTO)
+        {
+            return NguyenLieuDL.Instance.CapNhatNL(nlDTO);
+        }
+        public bool XoaNL(int nlDTO)
+        {
+            return NguyenLieuDL.Instance.XoaNguyenLieu(nlDTO);
         }
     }
 }

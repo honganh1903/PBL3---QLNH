@@ -41,6 +41,24 @@ namespace DAL
         }
         #endregion
 
+        #region Lấy Danh Sách NCC FULL
+        public DataTable GetDanhSachNCCFull()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = "SELECT MANCC AS N'Mã NCC',TENNCC AS N'Tên NCC' FROM NCC";
+                dt = DataAccess.GetTable(sql);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi database: " + ex.Message);
+                return null;
+            }
+        }
+        #endregion
+
         #region Thêm NCC
         public bool ThemNCC(NhaCungCapDTO nccDTO)
         {

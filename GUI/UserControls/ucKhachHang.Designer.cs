@@ -151,9 +151,9 @@
             this.cbbSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSearch.FormattingEnabled = true;
-            this.cbbSearch.Location = new System.Drawing.Point(23, 196);
+            this.cbbSearch.Location = new System.Drawing.Point(5, 196);
             this.cbbSearch.Name = "cbbSearch";
-            this.cbbSearch.Size = new System.Drawing.Size(121, 28);
+            this.cbbSearch.Size = new System.Drawing.Size(139, 28);
             this.cbbSearch.TabIndex = 17;
             // 
             // btSAVE
@@ -246,25 +246,25 @@
             // txtSDT
             // 
             this.txtSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSDT.Location = new System.Drawing.Point(156, 119);
+            this.txtSDT.Location = new System.Drawing.Point(129, 119);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(144, 26);
+            this.txtSDT.Size = new System.Drawing.Size(171, 26);
             this.txtSDT.TabIndex = 10;
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiaChi.Location = new System.Drawing.Point(156, 81);
+            this.txtDiaChi.Location = new System.Drawing.Point(129, 81);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(144, 26);
+            this.txtDiaChi.Size = new System.Drawing.Size(171, 26);
             this.txtDiaChi.TabIndex = 9;
             // 
             // txtTenKH
             // 
             this.txtTenKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenKH.Location = new System.Drawing.Point(156, 45);
+            this.txtTenKH.Location = new System.Drawing.Point(129, 45);
             this.txtTenKH.Name = "txtTenKH";
-            this.txtTenKH.Size = new System.Drawing.Size(144, 26);
+            this.txtTenKH.Size = new System.Drawing.Size(171, 26);
             this.txtTenKH.TabIndex = 8;
             // 
             // lbTinhTrang
@@ -311,7 +311,7 @@
             // 
             this.lbGioiTinh.AutoSize = true;
             this.lbGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGioiTinh.Location = new System.Drawing.Point(19, 160);
+            this.lbGioiTinh.Location = new System.Drawing.Point(3, 160);
             this.lbGioiTinh.Name = "lbGioiTinh";
             this.lbGioiTinh.Size = new System.Drawing.Size(67, 20);
             this.lbGioiTinh.TabIndex = 3;
@@ -321,7 +321,7 @@
             // 
             this.lbSDT.AutoSize = true;
             this.lbSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSDT.Location = new System.Drawing.Point(19, 122);
+            this.lbSDT.Location = new System.Drawing.Point(3, 122);
             this.lbSDT.Name = "lbSDT";
             this.lbSDT.Size = new System.Drawing.Size(102, 20);
             this.lbSDT.TabIndex = 2;
@@ -331,7 +331,7 @@
             // 
             this.lbDiaChi.AutoSize = true;
             this.lbDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDiaChi.Location = new System.Drawing.Point(19, 84);
+            this.lbDiaChi.Location = new System.Drawing.Point(3, 84);
             this.lbDiaChi.Name = "lbDiaChi";
             this.lbDiaChi.Size = new System.Drawing.Size(57, 20);
             this.lbDiaChi.TabIndex = 1;
@@ -341,7 +341,7 @@
             // 
             this.lbTenKH.AutoSize = true;
             this.lbTenKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenKH.Location = new System.Drawing.Point(19, 48);
+            this.lbTenKH.Location = new System.Drawing.Point(3, 48);
             this.lbTenKH.Name = "lbTenKH";
             this.lbTenKH.Size = new System.Drawing.Size(128, 20);
             this.lbTenKH.TabIndex = 0;
@@ -555,6 +555,7 @@
             this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKhachHang.Size = new System.Drawing.Size(696, 324);
             this.dgvKhachHang.TabIndex = 1;
+            this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
             // 
             // lbDSNow
             // 
