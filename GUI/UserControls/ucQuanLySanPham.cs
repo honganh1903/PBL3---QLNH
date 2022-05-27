@@ -509,5 +509,11 @@ namespace GUI.UserControls
         {
 
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            frmNL frm = new frmNL();
+            frm.ShowDialog();
+        }
     }
 }
