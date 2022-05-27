@@ -72,6 +72,13 @@ namespace BLL
         {
             return SanPhamDL.Instance.GetDanhSachSanPham();
         }
-        
+        public decimal LayGiaVonSP(int masp)
+        {
+            return SanPhamDL.Instance.LayGiaVonSP(masp);
+        }
+        public decimal LayGiaBanSP(int masp)
+        {
+            return SanPhamDL.Instance.LayGiaBanSP(masp);
+        }
     }
 }

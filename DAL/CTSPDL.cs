@@ -139,14 +139,14 @@ namespace DAL
         #region Cập Nhật Giá Vốn
         public bool CapNhatGiaVon(int masp)
         {
-            try {
+            
                 double giavon = GetTongGiaNhap(masp);
-                string sql = "UPDATE SANPHAM SET DONGIABAN=@DONGIABAN WHERE MASP = @MASP";
+                string sql = "UPDATE SANPHAM SET DONGIANHAP=@DONGIANHAP, DONGIABAN=(@DONGIANHAP + @DONGIANHAP*LOINHUAN/100) WHERE MASP = @MASP";
                 SqlConnection con = DataAccess.Openconnect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@MASP", masp);
-                cmd.Parameters.AddWithValue("@DONGIABAN", giavon);
+                cmd.Parameters.AddWithValue("@DONGIANHAP", giavon);
                 cmd.Connection = con;
                 int rows = cmd.ExecuteNonQuery();
                 DataAccess.Disconnect(con);
@@ -158,11 +158,7 @@ namespace DAL
                 {
                     return false;
                 }
-            }
-            catch(Exception ex) 
-            {
-                return false; 
-            }
+            
         }
         #endregion
     }

@@ -30,11 +30,6 @@ namespace GUI.UserControls
         {
             frmNCC frm = new frmNCC();
             frm.ShowDialog();
-            if (frm.b)
-            {
-                LoadCboNCC();
-                LoadCboLocNCC();
-            }
         }
         private void LoadCboLocNCC()
         {
@@ -347,8 +342,6 @@ namespace GUI.UserControls
                     {
                         if (int.Parse(txtLoiNhuan.Text) > 0)
                         {
-                            if (CTSPBL.Instance.CheckNL(masp) == false)
-                            {
                                 SanPhamDTO spDTO = new SanPhamDTO();
                                 spDTO.MaSP = masp;
                                 spDTO.TenSP = txtTen.Text;
@@ -372,13 +365,6 @@ namespace GUI.UserControls
                                     this.Alert("Cập nhật thất bại...", frmPopupNotification.enmType.Success);
                                 }
                             }
-                            else
-                            {
-                                frmThongBao frm = new frmThongBao();
-                                frm.lblThongBao.Text = "Bạn chưa nhập thành phần sản phẩm !!";
-                                frm.ShowDialog();
-                            }
-                        }
                         else
                         {
                             frmThongBao frm = new frmThongBao();
@@ -473,10 +459,12 @@ namespace GUI.UserControls
             if (txtLoiNhuan.Text == "")
             {
                 txtGiaBan.Clear();
+                
                 return;
             }
-            if (int.Parse(txtLoiNhuan.Text) > 0 && txtGiaBan.Text !="")
+            if (int.Parse(txtLoiNhuan.Text) > 0 && txtGiaNhap.Text !="")
             {
+
                 int n = int.Parse(txtGiaNhap.Text.Replace(",", "")) + ((int.Parse(txtGiaNhap.Text.Replace(",", "")) * int.Parse(txtLoiNhuan.Text.Replace(",", "")) / 100));
                 txtGiaBan.Text = ConvertTien((double)n);
             }
@@ -505,15 +493,21 @@ namespace GUI.UserControls
             Array.Reverse(charArray);
             return new string(charArray);
         }
-
+        public void CapNhatGiaVon(int masp) {
+            CTSPBL.Instance.CapNhatGiaVon(masp);
+            txtGiaBan.Text = SanPhamBL.Instance.LayGiaBanSP(masp).ToString();
+            txtGiaNhap.Text = SanPhamBL.Instance.LayGiaVonSP(masp).ToString();
+        }
         private void btnThemTP_Click(object sender, EventArgs e)
         {
             frmThemTP frm = new frmThemTP(masp);
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
-            {
-                CTSPBL.Instance.CapNhatGiaVon(masp);
-            }
+            frm.d = new frmThemTP.mydel(CapNhatGiaVon);
+            frm.Show();
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

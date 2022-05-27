@@ -14,13 +14,14 @@ namespace GUI
 {
     public partial class frmThemTP : Form
     {
-         int masp=0;
+        int masp = 0;
         public frmThemTP(int MA)
         {
             masp = MA;
             InitializeComponent();
         }
-
+        public delegate void mydel(int masp);
+        public mydel d;
         private void frmThemTP_Load(object sender, EventArgs e)
         {
             dgvNguyenLieu.DataSource = NguyenLieuBL.Instance.GetDanhSachNguyenLieu();
@@ -58,6 +59,7 @@ namespace GUI
 
         private void button9_Click(object sender, EventArgs e)
         {
+            d(masp);
             this.Close();
         }
 

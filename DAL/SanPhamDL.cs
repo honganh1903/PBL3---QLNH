@@ -358,5 +358,41 @@ namespace DAL
             }
         }
         #endregion
+
+        #region Lấy Giá Vốn Sản Phẩm
+        public decimal LayGiaVonSP(int masp)
+        {
+            try
+            {
+                string sql = "SELECT DONGIANHAP from SANPHAM where MASP = " + masp;
+                DataTable dt = new DataTable();
+                dt = DataAccess.GetTable(sql);
+                decimal giavon = decimal.Parse(dt.Rows[0][0].ToString());
+                return giavon;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        #endregion
+
+        #region Lấy Giá Bán Sản Phẩm
+        public decimal LayGiaBanSP(int masp)
+        {
+            try
+            {
+                string sql = "SELECT DONGIABAN from SANPHAM where MASP = " + masp;
+                DataTable dt = new DataTable();
+                dt = DataAccess.GetTable(sql);
+                decimal giaban = decimal.Parse(dt.Rows[0][0].ToString());
+                return giaban;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        #endregion
     }
 }

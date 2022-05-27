@@ -61,7 +61,9 @@
             this.dgvNguyenLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNguyenLieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNguyenLieu.Location = new System.Drawing.Point(0, 0);
+            this.dgvNguyenLieu.MultiSelect = false;
             this.dgvNguyenLieu.Name = "dgvNguyenLieu";
+            this.dgvNguyenLieu.ReadOnly = true;
             this.dgvNguyenLieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNguyenLieu.Size = new System.Drawing.Size(482, 233);
             this.dgvNguyenLieu.TabIndex = 0;
