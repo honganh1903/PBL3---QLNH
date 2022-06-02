@@ -13,8 +13,6 @@ namespace DTO
         public string MaLoaiSP { get; set; }
         public string DVT { get; set; }
         public int SoLuong { get; set; }
-        public decimal GiaNhap { get; set; }
-        public int LoiNhuan { get; set; }
         public decimal GiaBan { get; set; }
         public int KhuyenMai { get; set; }
         public byte[] HinhAnh { get; set; }

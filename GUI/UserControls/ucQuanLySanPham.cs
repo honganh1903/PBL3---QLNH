@@ -126,8 +126,6 @@ namespace GUI.UserControls
                     txtTen.Text = dr.Cells["Tên SP"].Value.ToString().Trim();
                     cboLoai.SelectedValue = dr.Cells["Mã Loại SP"].Value.ToString();
                     cboDVT.SelectedItem = dr.Cells["ĐVT"].Value.ToString();
-                    txtGiaNhap.Text = dr.Cells["Đơn Giá Nhập"].Value.ToString().Trim();
-                    txtLoiNhuan.Text = dr.Cells["Lợi Nhuận"].Value.ToString().Trim();
                     txtGiaBan.Text = dr.Cells["Đơn Giá Bán"].Value.ToString().Trim();
                     txtKhuyenMai.Text = dr.Cells["Khuyến Mãi"].Value.ToString().Trim();
                     MemoryStream ms = new MemoryStream((byte[])dgvSanPham.CurrentRow.Cells["Hình Ảnh"].Value‌​);
@@ -162,8 +160,6 @@ namespace GUI.UserControls
             txtTen.Clear();
             txtKhuyenMai.Clear();
             txtGiaBan.Clear();
-            txtGiaNhap.Clear();
-            txtLoiNhuan.Clear();
             cboDVT.SelectedIndex = 0;
             if (cboLoai.Items.Count > 0)
                 cboLoai.SelectedIndex = 0;
@@ -266,16 +262,12 @@ namespace GUI.UserControls
                 {
                     if (int.Parse(txtKhuyenMai.Text) < 100)
                     {
-                        if (int.Parse(txtLoiNhuan.Text) > 0)
-                        {
                             if (CTSPBL.Instance.CheckNL(masp)==false)
                             {
                                 SanPhamDTO spDTO = new SanPhamDTO();
                                 spDTO.TenSP = txtTen.Text;
                                 spDTO.MaLoaiSP = cboLoai.SelectedValue.ToString().Trim();
                                 spDTO.DVT = cboDVT.SelectedItem.ToString();
-                                spDTO.GiaNhap = decimal.Parse(txtGiaNhap.Text);
-                                spDTO.LoiNhuan = int.Parse(txtLoiNhuan.Text);
                                 spDTO.GiaBan = decimal.Parse(txtGiaBan.Text);
                                 spDTO.KhuyenMai = int.Parse(txtKhuyenMai.Text);
                                 Image img = picHinhAnh.Image;
@@ -295,13 +287,6 @@ namespace GUI.UserControls
                                 frm.lblThongBao.Text = "Bạn chưa nhập thành phần sản phẩm !!";
                                 frm.ShowDialog();
                             }
-                        }
-                        else
-                        {
-                            frmThongBao frm = new frmThongBao();
-                            frm.lblThongBao.Text = "Lợi nhuận phải lớn hơn 0%!";
-                            frm.ShowDialog();
-                        }
                     }
                     else
                     {
@@ -340,13 +325,9 @@ namespace GUI.UserControls
                 {
                     if (int.Parse(txtKhuyenMai.Text) < 100)
                     {
-                        if (int.Parse(txtLoiNhuan.Text) > 0)
-                        {
                                 SanPhamDTO spDTO = new SanPhamDTO();
                                 spDTO.MaSP = masp;
                                 spDTO.TenSP = txtTen.Text;
-                                spDTO.LoiNhuan = int.Parse(txtLoiNhuan.Text);
-                                spDTO.GiaNhap = decimal.Parse(txtGiaNhap.Text);
                                 spDTO.GiaBan = decimal.Parse(txtGiaBan.Text);
                                 spDTO.KhuyenMai = int.Parse(txtKhuyenMai.Text);
                                 Image img = picHinhAnh.Image;
@@ -364,13 +345,6 @@ namespace GUI.UserControls
                                 {
                                     this.Alert("Cập nhật thất bại...", frmPopupNotification.enmType.Success);
                                 }
-                            }
-                        else
-                        {
-                            frmThongBao frm = new frmThongBao();
-                            frm.lblThongBao.Text = "Lợi nhuận phải lớn hơn 0%!";
-                            frm.ShowDialog();
-                        }
                     }
                     else
                     {
@@ -442,66 +416,9 @@ namespace GUI.UserControls
                 e.Handled = true;
             }
         }
-
-        private void txtGiaNhap_TextChanged(object sender, EventArgs e)
-        {
-            if (txtGiaNhap.Text != "")
-            {
-                System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-                decimal value = decimal.Parse(txtGiaNhap.Text, System.Globalization.NumberStyles.AllowThousands);
-                txtGiaNhap.Text = String.Format(culture, "{0:N0}", value);
-                txtGiaNhap.Select(txtGiaNhap.Text.Length, 0);
-            }
-        }
-
-        private void txtLoiNhuan_TextChanged(object sender, EventArgs e)
-        {
-            if (txtLoiNhuan.Text == "")
-            {
-                txtGiaBan.Clear();
-                
-                return;
-            }
-            if (int.Parse(txtLoiNhuan.Text) > 0 && txtGiaNhap.Text !="")
-            {
-
-                int n = int.Parse(txtGiaNhap.Text.Replace(",", "")) + ((int.Parse(txtGiaNhap.Text.Replace(",", "")) * int.Parse(txtLoiNhuan.Text.Replace(",", "")) / 100));
-                txtGiaBan.Text = ConvertTien((double)n);
-            }
-            else
-            {
-                txtGiaBan.Clear();
-            }
-        }
-
-        private string ConvertTien(double gia)
-        {
-            string giaban = gia.ToString();
-            string result = "";
-            int d = 0;
-            for (int i = giaban.Length - 1; i >= 0; i--)
-            {
-                d++;
-                result += giaban[i];
-                if (d == 3 && i != 0)
-                {
-                    result += ',';
-                    d = 0;
-                }
-            }
-            char[] charArray = result.ToCharArray();
-            Array.Reverse(charArray);
-            return new string(charArray);
-        }
-        public void CapNhatGiaVon(int masp) {
-            CTSPBL.Instance.CapNhatGiaVon(masp);
-            txtGiaBan.Text = SanPhamBL.Instance.LayGiaBanSP(masp).ToString();
-            txtGiaNhap.Text = SanPhamBL.Instance.LayGiaVonSP(masp).ToString();
-        }
         private void btnThemTP_Click(object sender, EventArgs e)
         {
             frmThemTP frm = new frmThemTP(masp);
-            frm.d = new frmThemTP.mydel(CapNhatGiaVon);
             frm.Show();
         }
 
@@ -515,5 +432,16 @@ namespace GUI.UserControls
             frmNL frm = new frmNL();
             frm.ShowDialog();
         }
-    }
+
+        private void txtGiaBan_TextChanged(object sender, EventArgs e)
+        {
+                if (txtGiaBan.Text != "")
+                {
+                    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+                    decimal value = decimal.Parse(txtGiaBan.Text, System.Globalization.NumberStyles.AllowThousands);
+                    txtGiaBan.Text = String.Format(culture, "{0:N0}", value);
+                    txtGiaBan.Select(txtGiaBan.Text.Length, 0);
+                }
+            }
+        }
 }

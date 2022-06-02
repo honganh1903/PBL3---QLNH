@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucThongKe));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -35,21 +36,23 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucThongKe));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lbTongSanPham = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.picSanPham = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lbTongDoanhThu = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.picDoanhThu = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lbTongKhachHang = new System.Windows.Forms.Label();
+            this.picKhachHang = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -68,15 +71,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.chartTopSP = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.picSanPham = new System.Windows.Forms.PictureBox();
-            this.picDoanhThu = new System.Windows.Forms.PictureBox();
-            this.picKhachHang = new System.Windows.Forms.PictureBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSanPham)).BeginInit();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDoanhThu)).BeginInit();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picKhachHang)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -91,9 +93,6 @@
             this.panel12.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTopSP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSanPham)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDoanhThu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picKhachHang)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -111,7 +110,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.31507F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.68493F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 331F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 336F));
             this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel8, 2, 0);
@@ -132,7 +131,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(330, 86);
+            this.panel6.Size = new System.Drawing.Size(328, 86);
             this.panel6.TabIndex = 0;
             // 
             // lbTongSanPham
@@ -160,6 +159,15 @@
             this.label2.Text = "Sản Phẩm Đã Bán";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // picSanPham
+            // 
+            this.picSanPham.Image = global::GUI.Properties.Resources.box1;
+            this.picSanPham.Location = new System.Drawing.Point(236, 20);
+            this.picSanPham.Name = "picSanPham";
+            this.picSanPham.Size = new System.Drawing.Size(50, 50);
+            this.picSanPham.TabIndex = 2;
+            this.picSanPham.TabStop = false;
+            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Orange;
@@ -167,9 +175,9 @@
             this.panel7.Controls.Add(this.label3);
             this.panel7.Controls.Add(this.picDoanhThu);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(339, 3);
+            this.panel7.Location = new System.Drawing.Point(337, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(340, 86);
+            this.panel7.Size = new System.Drawing.Size(337, 86);
             this.panel7.TabIndex = 0;
             // 
             // lbTongDoanhThu
@@ -196,6 +204,15 @@
             this.label3.Text = "Tổng Doanh Thu";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // picDoanhThu
+            // 
+            this.picDoanhThu.Image = global::GUI.Properties.Resources.dollar2;
+            this.picDoanhThu.Location = new System.Drawing.Point(257, 20);
+            this.picDoanhThu.Name = "picDoanhThu";
+            this.picDoanhThu.Size = new System.Drawing.Size(50, 50);
+            this.picDoanhThu.TabIndex = 2;
+            this.picDoanhThu.TabStop = false;
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.RoyalBlue;
@@ -203,9 +220,9 @@
             this.panel8.Controls.Add(this.picKhachHang);
             this.panel8.Controls.Add(this.label4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(685, 3);
+            this.panel8.Location = new System.Drawing.Point(680, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(326, 86);
+            this.panel8.Size = new System.Drawing.Size(331, 86);
             this.panel8.TabIndex = 0;
             // 
             // lbTongKhachHang
@@ -218,6 +235,16 @@
             this.lbTongKhachHang.Size = new System.Drawing.Size(32, 24);
             this.lbTongKhachHang.TabIndex = 3;
             this.lbTongKhachHang.Text = "dế";
+            // 
+            // picKhachHang
+            // 
+            this.picKhachHang.ErrorImage = null;
+            this.picKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("picKhachHang.Image")));
+            this.picKhachHang.Location = new System.Drawing.Point(242, 20);
+            this.picKhachHang.Name = "picKhachHang";
+            this.picKhachHang.Size = new System.Drawing.Size(50, 50);
+            this.picKhachHang.TabIndex = 2;
+            this.picKhachHang.TabStop = false;
             // 
             // label4
             // 
@@ -250,6 +277,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1014, 55);
             this.panel5.TabIndex = 0;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnRefresh.Image = global::GUI.Properties.Resources.loading;
+            this.btnRefresh.Location = new System.Drawing.Point(949, 0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(65, 55);
+            this.btnRefresh.TabIndex = 1;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // label1
             // 
@@ -293,8 +331,8 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.14128F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.85872F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.81678F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.18322F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(459, 453);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -306,12 +344,16 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(3, 3);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(453, 49);
+            this.panel11.Size = new System.Drawing.Size(453, 43);
             this.panel11.TabIndex = 0;
             // 
             // cboDoanhThu
             // 
-            this.cboDoanhThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDoanhThu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(133)))), ((int)(((byte)(204)))));
+            this.cboDoanhThu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cboDoanhThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboDoanhThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDoanhThu.ForeColor = System.Drawing.Color.White;
             this.cboDoanhThu.FormattingEnabled = true;
             this.cboDoanhThu.Items.AddRange(new object[] {
             "Hôm nay",
@@ -319,10 +361,10 @@
             "7 ngày qua",
             "Tháng này",
             "Tháng trước"});
-            this.cboDoanhThu.Location = new System.Drawing.Point(299, 9);
+            this.cboDoanhThu.Location = new System.Drawing.Point(332, 0);
             this.cboDoanhThu.Name = "cboDoanhThu";
-            this.cboDoanhThu.Size = new System.Drawing.Size(128, 32);
-            this.cboDoanhThu.TabIndex = 4;
+            this.cboDoanhThu.Size = new System.Drawing.Size(121, 28);
+            this.cboDoanhThu.TabIndex = 5;
             this.cboDoanhThu.SelectedValueChanged += new System.EventHandler(this.cboDoanhThu_SelectedValueChanged);
             // 
             // label5
@@ -343,9 +385,9 @@
             // 
             this.panel13.Controls.Add(this.chartDoanhThu);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(3, 58);
+            this.panel13.Location = new System.Drawing.Point(3, 52);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(453, 392);
+            this.panel13.Size = new System.Drawing.Size(453, 398);
             this.panel13.TabIndex = 1;
             // 
             // chartDoanhThu
@@ -361,11 +403,10 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartDoanhThu.Series.Add(series1);
-            this.chartDoanhThu.Size = new System.Drawing.Size(453, 392);
+            this.chartDoanhThu.Size = new System.Drawing.Size(453, 398);
             this.chartDoanhThu.TabIndex = 0;
             this.chartDoanhThu.Text = "chart1";
             title1.Name = "Title1";
-            title1.Text = "Biểu Đồ Cột Doanh Thu";
             this.chartDoanhThu.Titles.Add(title1);
             // 
             // panel3
@@ -397,8 +438,8 @@
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.14128F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.85872F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.81678F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.18322F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(555, 453);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -411,36 +452,44 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(3, 3);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(549, 49);
+            this.panel12.Size = new System.Drawing.Size(549, 43);
             this.panel12.TabIndex = 0;
             // 
             // cboTopSanPham2
             // 
-            this.cboTopSanPham2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTopSanPham2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(133)))), ((int)(((byte)(204)))));
+            this.cboTopSanPham2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cboTopSanPham2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboTopSanPham2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTopSanPham2.ForeColor = System.Drawing.Color.White;
             this.cboTopSanPham2.FormattingEnabled = true;
             this.cboTopSanPham2.Items.AddRange(new object[] {
+            "Theo số lượng",
+            "Theo doanh thu"});
+            this.cboTopSanPham2.Location = new System.Drawing.Point(279, 0);
+            this.cboTopSanPham2.Name = "cboTopSanPham2";
+            this.cboTopSanPham2.Size = new System.Drawing.Size(149, 28);
+            this.cboTopSanPham2.TabIndex = 6;
+            this.cboTopSanPham2.SelectedValueChanged += new System.EventHandler(this.cboTopSanPham2_SelectedValueChanged);
+            // 
+            // cboTopSanPham1
+            // 
+            this.cboTopSanPham1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(133)))), ((int)(((byte)(204)))));
+            this.cboTopSanPham1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cboTopSanPham1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboTopSanPham1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTopSanPham1.ForeColor = System.Drawing.Color.White;
+            this.cboTopSanPham1.FormattingEnabled = true;
+            this.cboTopSanPham1.Items.AddRange(new object[] {
             "Hôm nay",
             "Hôm qua",
             "7 ngày qua",
             "Tháng này",
             "Tháng trước"});
-            this.cboTopSanPham2.Location = new System.Drawing.Point(392, 9);
-            this.cboTopSanPham2.Name = "cboTopSanPham2";
-            this.cboTopSanPham2.Size = new System.Drawing.Size(138, 32);
-            this.cboTopSanPham2.TabIndex = 3;
-            this.cboTopSanPham2.SelectedValueChanged += new System.EventHandler(this.cboTopSanPham2_SelectedValueChanged);
-            // 
-            // cboTopSanPham1
-            // 
-            this.cboTopSanPham1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTopSanPham1.FormattingEnabled = true;
-            this.cboTopSanPham1.Items.AddRange(new object[] {
-            "Theo số lượng",
-            "Theo doanh thu"});
-            this.cboTopSanPham1.Location = new System.Drawing.Point(218, 9);
+            this.cboTopSanPham1.Location = new System.Drawing.Point(428, 0);
             this.cboTopSanPham1.Name = "cboTopSanPham1";
-            this.cboTopSanPham1.Size = new System.Drawing.Size(147, 32);
-            this.cboTopSanPham1.TabIndex = 3;
+            this.cboTopSanPham1.Size = new System.Drawing.Size(121, 28);
+            this.cboTopSanPham1.TabIndex = 5;
             this.cboTopSanPham1.SelectedValueChanged += new System.EventHandler(this.cboTopSanPham1_SelectedValueChanged);
             // 
             // label6
@@ -450,7 +499,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Location = new System.Drawing.Point(17, 12);
+            this.label6.Location = new System.Drawing.Point(14, 12);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(184, 24);
             this.label6.TabIndex = 2;
@@ -461,9 +510,9 @@
             // 
             this.panel14.Controls.Add(this.chartTopSP);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(3, 58);
+            this.panel14.Location = new System.Drawing.Point(3, 52);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(549, 392);
+            this.panel14.Size = new System.Drawing.Size(549, 398);
             this.panel14.TabIndex = 1;
             // 
             // chartTopSP
@@ -475,56 +524,15 @@
             this.chartTopSP.Legends.Add(legend2);
             this.chartTopSP.Location = new System.Drawing.Point(0, 0);
             this.chartTopSP.Name = "chartTopSP";
+            this.chartTopSP.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
+            series2.Name = "Doanh Thu";
             this.chartTopSP.Series.Add(series2);
-            this.chartTopSP.Size = new System.Drawing.Size(549, 392);
+            this.chartTopSP.Size = new System.Drawing.Size(549, 398);
             this.chartTopSP.TabIndex = 7;
             this.chartTopSP.Text = "Top 10 Sản Phẩm Bán Chạy";
-            title2.Name = "Title1";
-            title2.Text = "Biểu Đồ Tròn";
-            this.chartTopSP.Titles.Add(title2);
-            // 
-            // picSanPham
-            // 
-            this.picSanPham.Image = global::GUI.Properties.Resources.box1;
-            this.picSanPham.Location = new System.Drawing.Point(236, 20);
-            this.picSanPham.Name = "picSanPham";
-            this.picSanPham.Size = new System.Drawing.Size(50, 50);
-            this.picSanPham.TabIndex = 2;
-            this.picSanPham.TabStop = false;
-            // 
-            // picDoanhThu
-            // 
-            this.picDoanhThu.Image = global::GUI.Properties.Resources.dollar2;
-            this.picDoanhThu.Location = new System.Drawing.Point(257, 20);
-            this.picDoanhThu.Name = "picDoanhThu";
-            this.picDoanhThu.Size = new System.Drawing.Size(50, 50);
-            this.picDoanhThu.TabIndex = 2;
-            this.picDoanhThu.TabStop = false;
-            // 
-            // picKhachHang
-            // 
-            this.picKhachHang.ErrorImage = null;
-            this.picKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("picKhachHang.Image")));
-            this.picKhachHang.Location = new System.Drawing.Point(242, 20);
-            this.picKhachHang.Name = "picKhachHang";
-            this.picKhachHang.Size = new System.Drawing.Size(50, 50);
-            this.picKhachHang.TabIndex = 2;
-            this.picKhachHang.TabStop = false;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnRefresh.Image = global::GUI.Properties.Resources.loading;
-            this.btnRefresh.Location = new System.Drawing.Point(949, 0);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(65, 55);
-            this.btnRefresh.TabIndex = 1;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // ucThongKe
             // 
@@ -541,10 +549,13 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSanPham)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDoanhThu)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picKhachHang)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -561,9 +572,6 @@
             this.panel12.PerformLayout();
             this.panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartTopSP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSanPham)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDoanhThu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picKhachHang)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -594,16 +602,16 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cboDoanhThu;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDoanhThu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.ComboBox cboTopSanPham2;
-        private System.Windows.Forms.ComboBox cboTopSanPham1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartTopSP;
+        private System.Windows.Forms.ComboBox cboDoanhThu;
+        private System.Windows.Forms.ComboBox cboTopSanPham2;
+        private System.Windows.Forms.ComboBox cboTopSanPham1;
     }
 }

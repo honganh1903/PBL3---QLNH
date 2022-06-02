@@ -14,18 +14,19 @@ namespace GUI.UserControls
 {
     public partial class ucThongKe : UserControl
     {
+        private void ucThongKe_Load(object sender, EventArgs e)
+        {
+            cboDoanhThu.SelectedIndex = 0;
+            cboTopSanPham2.SelectedIndex = 0;
+            cboTopSanPham1.SelectedIndex = 0;
+            btnRefresh.PerformClick();
+        }
         public ucThongKe()
         {
             InitializeComponent();
         }
 
-        private void ucThongKe_Load(object sender, EventArgs e)
-        {
-            cboDoanhThu.SelectedIndex = 0;
-            cboTopSanPham1.SelectedIndex = 0;
-            cboTopSanPham2.SelectedIndex = 0;
-            btnRefresh.PerformClick();
-        }
+        
         private string Convert(double gia)
         {
             string giaban = gia.ToString();
@@ -170,6 +171,7 @@ namespace GUI.UserControls
                     break;
             }
         }
+
 
         private void cboTopSanPham1_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -389,10 +391,13 @@ namespace GUI.UserControls
             }
             Cursor = Cursors.Default;
         }
+
+
+
         private void cboTopSanPham2_SelectedValueChanged(object sender, EventArgs e)
         {
             Cursor = Cursors.AppStarting;
-            if (cboTopSanPham2.SelectedItem != null)
+            if (cboTopSanPham2.SelectedItem != null && cboTopSanPham1.SelectedItem != null)
             {
                 if (cboTopSanPham2.SelectedItem.ToString() == "Theo số lượng" && cboTopSanPham1.SelectedItem.ToString() == "Hôm nay")
                 {

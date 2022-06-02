@@ -108,9 +108,9 @@ namespace GUI.UserControls
                 sp.spDTO.MaLoaiSP = dt.Rows[i].ItemArray[2].ToString();
                 sp.spDTO.DVT = dt.Rows[i].ItemArray[3].ToString();
                 sp.spDTO.SoLuong = int.Parse(dt.Rows[i].ItemArray[4].ToString());
-                sp.spDTO.GiaBan = decimal.Parse(dt.Rows[i].ItemArray[6].ToString());
-                sp.spDTO.KhuyenMai = int.Parse(dt.Rows[i].ItemArray[7].ToString());
-                sp.spDTO.HinhAnh = (byte[])dt.Rows[i].ItemArray[8];
+                sp.spDTO.GiaBan = decimal.Parse(dt.Rows[i].ItemArray[4].ToString());
+                sp.spDTO.KhuyenMai = int.Parse(dt.Rows[i].ItemArray[5].ToString());
+                sp.spDTO.HinhAnh = (byte[])dt.Rows[i].ItemArray[6];
                 MemoryStream ms = new MemoryStream(sp.spDTO.HinhAnh);
                 sp.picSP.Image = Image.FromStream(ms);
 
@@ -130,12 +130,12 @@ namespace GUI.UserControls
                     sp.lblGiaKM.Text = "Giá: " + Convert(sp.spDTO.GiaBan - (sp.spDTO.GiaBan * sp.spDTO.KhuyenMai) / 100) + " ₫";
                     sp.pictureBox2.Click += PictureBox2_Click;
                 }
-                if (sp.spDTO.SoLuong <= 0)
-                {
-                    sp.lblSanCo.Text = "Hết hàng!";
-                }
-                else
-                    sp.lblSanCo.Text = "Sẵn có: " + sp.spDTO.SoLuong.ToString() + " " + sp.spDTO.DVT;
+                //if (sp.spDTO.SoLuong <= 0)
+                //{
+                //    sp.lblSanCo.Text = "Hết hàng!";
+                //}
+                //else
+                //    sp.lblSanCo.Text = "Sẵn có: " + sp.spDTO.SoLuong.ToString() + " " + sp.spDTO.DVT;
                 sp.lblGiaGoc.Font = new Font("UTM Avo", 10, FontStyle.Strikeout);
                 sp.Click += Sp_Click;
                 sp.lblGiaGoc.Click += LblGiaGoc_Click;

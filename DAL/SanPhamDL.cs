@@ -96,7 +96,7 @@ namespace DAL
         {
             try
             {
-                string sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',MANCC as N'Mã NCC',  DONGIANHAP as N'Đơn Giá Nhập', LOINHUAN as N'Lợi Nhuận', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE NGUNGKINHDOANH = '0'";
+                string sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',MANCC as N'Mã NCC', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE NGUNGKINHDOANH = '0'";
                 DataTable dt = new DataTable();
                 dt = DataAccess.GetTable(sql);
                 return dt;
@@ -114,7 +114,7 @@ namespace DAL
         {
             try
             {
-                string sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',MANCC as N'Mã NCC',  DONGIANHAP as N'Đơn Giá Nhập', LOINHUAN as N'Lợi Nhuận', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE NGUNGKINHDOANH = '0' AND MANCC =" + MANCC;
+                string sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',MANCC as N'Mã NCC', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE NGUNGKINHDOANH = '0' AND MANCC =" + MANCC;
                 DataTable dt = new DataTable();
                 dt = DataAccess.GetTable(sql);
                 return dt;
@@ -138,25 +138,25 @@ namespace DAL
                 {
                     if (MALOAISP == "-1" && MANCC == "-1")
                     {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',  DONGIANHAP as N'Đơn Giá Nhập', LOINHUAN as N'Lợi Nhuận', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND NGUNGKINHDOANH='0'";//
+                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT' , DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND NGUNGKINHDOANH='0'";//
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
                     else if (MALOAISP != "-1" && MANCC == "-1")
                     {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',   DONGIANHAP as N'Đơn Giá Nhập', LOINHUAN as N'Lợi Nhuận', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND MALOAISP LIKE '%" + MALOAISP + "%' AND NGUNGKINHDOANH='0'";
+                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND MALOAISP LIKE '%" + MALOAISP + "%' AND NGUNGKINHDOANH='0'";
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
                     else if (MALOAISP == "-1" && MANCC != "-1")
                     {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',   DONGIANHAP as N'Đơn Giá Nhập', LOINHUAN as N'Lợi Nhuận', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
+                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
                     else if (MALOAISP != "-1" && MANCC != "-1")
                     {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',   DONGIANHAP as N'Đơn Giá Nhập', LOINHUAN as N'Lợi Nhuận', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND MALOAISP LIKE '%" + MALOAISP + "%' AND MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
+                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND MALOAISP LIKE '%" + MALOAISP + "%' AND MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
@@ -165,25 +165,25 @@ namespace DAL
                 {
                     if (MALOAISP == "-1" && MANCC == "-1")
                     {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',   DONGIANHAP as N'Đơn Giá Nhập', LOINHUAN as N'Lợi Nhuận', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE NGUNGKINHDOANH='0'";
+                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE NGUNGKINHDOANH='0'";
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
                     else if (MALOAISP != "-1" && MANCC == "-1")
                     {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',   DONGIANHAP as N'Đơn Giá Nhập', LOINHUAN as N'Lợi Nhuận', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE MALOAISP LIKE '%" + MALOAISP + "%' AND NGUNGKINHDOANH='0'";
+                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE MALOAISP LIKE '%" + MALOAISP + "%' AND NGUNGKINHDOANH='0'";
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
                     else if (MALOAISP == "-1" && MANCC != "-1")
                     {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',   DONGIANHAP as N'Đơn Giá Nhập', LOINHUAN as N'Lợi Nhuận', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
+                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
                     else if (MALOAISP != "-1" && MANCC != "-1")
                     {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',   DONGIANHAP as N'Đơn Giá Nhập', LOINHUAN as N'Lợi Nhuận',DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE MALOAISP LIKE '%" + MALOAISP + "%' AND MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
+                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE MALOAISP LIKE '%" + MALOAISP + "%' AND MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
@@ -227,7 +227,7 @@ namespace DAL
         {
             try
             {
-                string sql = "INSERT INTO SANPHAM VALUES(@TENSP,@MALOAISP,@DVT,@SOLUONG,@GIANHAP,@LOINHUAN,@GIABAN,@KHUYENMAI,@HINHANH,@NGUNGKINHDOANH)";
+                string sql = "INSERT INTO SANPHAM VALUES(@TENSP,@MALOAISP,@DVT,@SOLUONG,@GIABAN,@KHUYENMAI,@HINHANH,@NGUNGKINHDOANH)";
                 SqlConnection con = DataAccess.Openconnect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = sql;
@@ -236,8 +236,6 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@DVT", spDTO.DVT);
                 cmd.Parameters.AddWithValue("@SOLUONG", 0);
                 cmd.Parameters.AddWithValue("@GIABAN", spDTO.GiaBan);
-                cmd.Parameters.AddWithValue("@GIANHAP", spDTO.GiaNhap);
-                cmd.Parameters.AddWithValue("@LOINHUAN", spDTO.LoiNhuan);
                 cmd.Parameters.AddWithValue("@KHUYENMAI", spDTO.KhuyenMai);
                 cmd.Parameters.AddWithValue("@HINHANH", spDTO.HinhAnh);
                 cmd.Parameters.AddWithValue("@NGUNGKINHDOANH", 0);
@@ -266,14 +264,12 @@ namespace DAL
         {
             try
             {
-                string sql = "UPDATE SANPHAM SET TENSP = @TENSP,DONGIANHAP = @DONGIANHAP,LOINHUAN = @LOINHUAN,DONGIABAN = @DONGIABAN,KHUYENMAI = @KHUYENMAI,HINHANH = @HINHANH WHERE MASP = @MASP";
+                string sql = "UPDATE SANPHAM SET TENSP = @TENSP,DONGIABAN = @DONGIABAN,KHUYENMAI = @KHUYENMAI,HINHANH = @HINHANH WHERE MASP = @MASP";
                 SqlConnection con = DataAccess.Openconnect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@MASP", spDTO.MaSP);
                 cmd.Parameters.AddWithValue("@TENSP", spDTO.TenSP);
-                cmd.Parameters.AddWithValue("@DONGIANHAP", spDTO.GiaNhap);
-                cmd.Parameters.AddWithValue("@LOINHUAN", spDTO.LoiNhuan);
                 cmd.Parameters.AddWithValue("@DONGIABAN", spDTO.GiaBan);
                 cmd.Parameters.AddWithValue("@KHUYENMAI", spDTO.KhuyenMai);
                 cmd.Parameters.AddWithValue("@HINHANH", spDTO.HinhAnh);

@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucSanPham));
             this.lblGiaKM = new System.Windows.Forms.Label();
             this.lblTenSP = new System.Windows.Forms.Label();
-            this.lblSanCo = new System.Windows.Forms.Label();
             this.lblGiaGoc = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblKM = new System.Windows.Forms.Label();
@@ -66,17 +65,6 @@
             this.lblTenSP.Size = new System.Drawing.Size(130, 19);
             this.lblTenSP.TabIndex = 19;
             this.lblTenSP.Text = "Tên: Cafe";
-            // 
-            // lblSanCo
-            // 
-            this.lblSanCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblSanCo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblSanCo.Location = new System.Drawing.Point(76, 142);
-            this.lblSanCo.Name = "lblSanCo";
-            this.lblSanCo.Size = new System.Drawing.Size(67, 18);
-            this.lblSanCo.TabIndex = 20;
-            this.lblSanCo.Text = "Sẵn có";
-            this.lblSanCo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblGiaGoc
             // 
@@ -147,7 +135,6 @@
             this.Controls.Add(this.lblTenSP);
             this.Controls.Add(this.picSP);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.lblSanCo);
             this.Controls.Add(this.lblGiaGoc);
             this.Controls.Add(this.panel1);
             this.Name = "ucSanPham";
@@ -169,7 +156,6 @@
         public System.Windows.Forms.Label lblTenSP;
         public System.Windows.Forms.PictureBox picSP;
         public System.Windows.Forms.PictureBox pictureBox2;
-        public System.Windows.Forms.Label lblSanCo;
         public System.Windows.Forms.Label lblGiaGoc;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Label lblKM;

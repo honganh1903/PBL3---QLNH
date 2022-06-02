@@ -118,49 +118,6 @@ namespace DAL
         }
         #endregion
 
-        #region Lấy Tổng Giá Nhập
-        public double GetTongGiaNhap(int masp)
-        {
-            try
-            {
-                string sql = "SELECT SUM(CTSP.SOLUONG*DONGIANHAP) from CTSP inner join NGUYENLIEU on NGUYENLIEU.MANL = CTSP.MANL where MASP = " + masp;
-                DataTable dt = new DataTable();
-                dt = DataAccess.GetTable(sql);
-                double giavon = double.Parse(dt.Rows[0][0].ToString());
-                return giavon;
-            }
-            catch (Exception)
-            {
-                return 0;
-            }
-        }
-        #endregion
-
-        #region Cập Nhật Giá Vốn
-        public bool CapNhatGiaVon(int masp)
-        {
-            
-                double giavon = GetTongGiaNhap(masp);
-                string sql = "UPDATE SANPHAM SET DONGIANHAP=@DONGIANHAP, DONGIABAN=(@DONGIANHAP + @DONGIANHAP*LOINHUAN/100) WHERE MASP = @MASP";
-                SqlConnection con = DataAccess.Openconnect();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@MASP", masp);
-                cmd.Parameters.AddWithValue("@DONGIANHAP", giavon);
-                cmd.Connection = con;
-                int rows = cmd.ExecuteNonQuery();
-                DataAccess.Disconnect(con);
-                if (rows > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            
-        }
-        #endregion
     }
 }
 
