@@ -8,7 +8,7 @@ namespace DTO
 {
     public class NhanVienDTO
     {
-        public int MaNNV { get; set; }
+        public int MaNV { get; set; }
         public string TenNV { get; set; }
         public int MaLoaiNV { get; set; }
         public bool GioiTinh { get; set; }

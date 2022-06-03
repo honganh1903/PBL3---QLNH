@@ -136,7 +136,7 @@ namespace DAL
         {
             try
             {
-                string sql = "UPDATE NGUYENLIEU SET TENNL=N'" + nlDTO.TenNL + "',DVT=N'" + nlDTO.DVT + "',DONGIANHAP='" + nlDTO.DonGiaNhap + "',MANCC=N'" + nlDTO.MaNCC +"',SOLUONG=N'"+ nlDTO.SoLuong+"' WHERE MANL='" +nlDTO.MaNL+ "'";
+                string sql = "UPDATE NGUYENLIEU SET TENNL=N'" + nlDTO.TenNL + "',DVT=N'" + nlDTO.DVT + "',DONGIANHAP=N'" + nlDTO.DonGiaNhap + "',MANCC=N'" + nlDTO.MaNCC +"',SOLUONG=N'"+ nlDTO.SoLuong+"' WHERE MANL='" +nlDTO.MaNL+ "'";
                 int rows = DataAccess.JustExcuteNoParameter(sql);
                 if (rows > 0)
                 {

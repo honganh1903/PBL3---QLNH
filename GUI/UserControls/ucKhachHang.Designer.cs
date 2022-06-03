@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btSEARCH = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cbbSearch = new System.Windows.Forms.ComboBox();
             this.btSAVE = new System.Windows.Forms.Button();
@@ -68,6 +67,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
             this.lbDSNow = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.grbGioiTinh.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -82,8 +82,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btSEARCH);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.cbbSearch);
             this.panel1.Controls.Add(this.btSAVE);
@@ -108,7 +108,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(696, 249);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -123,35 +122,21 @@
             this.label1.Text = "Thông Tin Khách Hàng";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btSEARCH
-            // 
-            this.btSEARCH.BackColor = System.Drawing.Color.SlateGray;
-            this.btSEARCH.FlatAppearance.BorderSize = 0;
-            this.btSEARCH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btSEARCH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSEARCH.ForeColor = System.Drawing.Color.White;
-            this.btSEARCH.Location = new System.Drawing.Point(320, 197);
-            this.btSEARCH.Name = "btSEARCH";
-            this.btSEARCH.Size = new System.Drawing.Size(100, 27);
-            this.btSEARCH.TabIndex = 19;
-            this.btSEARCH.Text = "SEARCH";
-            this.btSEARCH.UseVisualStyleBackColor = false;
-            this.btSEARCH.Click += new System.EventHandler(this.btSEARCH_Click);
-            // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(158, 198);
+            this.txtSearch.Location = new System.Drawing.Point(291, 202);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(143, 26);
             this.txtSearch.TabIndex = 18;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // cbbSearch
             // 
             this.cbbSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSearch.FormattingEnabled = true;
-            this.cbbSearch.Location = new System.Drawing.Point(5, 196);
+            this.cbbSearch.Location = new System.Drawing.Point(138, 200);
             this.cbbSearch.Name = "cbbSearch";
             this.cbbSearch.Size = new System.Drawing.Size(139, 28);
             this.cbbSearch.TabIndex = 17;
@@ -570,6 +555,16 @@
             this.lbDSNow.Text = "Danh sách khách hàng";
             this.lbDSNow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(58, 205);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 20);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Tìm Kiếm";
+            // 
             // ucKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -616,7 +611,6 @@
         private System.Windows.Forms.CheckBox cboxTinhTrang;
         private System.Windows.Forms.DateTimePicker dtpNgayDangKy;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btSEARCH;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ComboBox cbbSearch;
         private System.Windows.Forms.Button btSAVE;
@@ -636,5 +630,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridView dgvKhachHang;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace DAL
 {
@@ -21,5 +22,9 @@ namespace DAL
             }
         }
         private LoaiNhanVienDL() { }
+        public DataTable SetCBB(string query)
+        {
+            return DataAccess.GetTable(query);
+        }
     }
 }
