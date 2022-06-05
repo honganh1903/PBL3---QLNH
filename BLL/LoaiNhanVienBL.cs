@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
+using System.Data;
 
 namespace BLL
 {
@@ -21,5 +23,9 @@ namespace BLL
             }
         }
         private LoaiNhanVienBL() { }
+        public DataTable SetCBB(string query)
+        {
+            return LoaiNhanVienDL.Instance.SetCBB(query);
+        }
     }
 }

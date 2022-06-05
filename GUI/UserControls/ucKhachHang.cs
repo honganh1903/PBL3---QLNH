@@ -75,11 +75,53 @@ namespace GUI.UserControls
 
         private void btSAVE_Click(object sender, EventArgs e)
         {
+            int k = 0;
             if (rbNam.Checked == false && rbNu.Checked == false)
             {
-                MessageBox.Show("Vui lòng chọn giới tính");
+                grbGioiTinh.BackColor = Color.Red;
+                k = 1;
             }
             else
+            {
+                grbGioiTinh.BackColor = Color.White;
+            }
+            if (txtDiaChi.Text == "")
+            {
+                txtDiaChi.BackColor = Color.Red;
+                k = 1;
+            }
+            else
+            {
+                txtDiaChi.BackColor = Color.White;
+            }
+            if (txtTenKH.Text == "")
+            {
+                txtTenKH.BackColor = Color.Red;
+                k = 1;
+            }
+            else
+            {
+                txtTenKH.BackColor = Color.White;
+            }
+            if (txtEmail.Text == "")
+            {
+                txtEmail.BackColor = Color.Red;
+                k = 1;
+            }
+            else
+            {
+                txtEmail.BackColor = Color.White;
+            }
+            if (txtSDT.Text == "")
+            {
+                txtSDT.BackColor = Color.Red;
+                k = 1;
+            }
+            else
+            {
+                txtSDT.BackColor = Color.White;
+            }
+            if (k == 0)
             {
                 KhachHangDTO khDTO = new KhachHangDTO();
                 if (checkselect == 2) khDTO.MaKH = makh;
@@ -94,48 +136,19 @@ namespace GUI.UserControls
                 {
                     khDTO.DoanhSo = 0;
                     KhachHangBL.Instance.ThemKhachHang(khDTO);
-                    MessageBox.Show("Thêm thành công khách hàng!");
+                    this.Alert("Thêm thành công...", frmPopupNotification.enmType.Success);
                 }
                 else if (checkselect == 2)
                 {
                     khDTO.DaXoa = cboxTinhTrang.Checked;
                     KhachHangBL.Instance.SuaKhachHang(khDTO);
-                    MessageBox.Show("Sửa thành công khách hàng!");
+                    this.Alert("Sửa thành công...", frmPopupNotification.enmType.Success);
                 }
                 UnLockInfomationKH();
                 LockInfomationKH();
                 load();
             }
         }
-
-        private void btSEARCH_Click(object sender, EventArgs e)
-        {
-            switch (cbbSearch.SelectedIndex)
-            {
-                case 0:
-                    {
-                        dgvKhachHang.DataSource = KhachHangBL.Instance.GetDanhSachByName(txtSearch.Text, maDS);
-                        break;
-                    }
-                case 1:
-                    {
-                        dgvKhachHang.DataSource = KhachHangBL.Instance.GetDanhSachByDC(txtSearch.Text, maDS);
-                        break;
-                    }
-                case 2:
-                    {
-                        dgvKhachHang.DataSource = KhachHangBL.Instance.GetDanhSachBySDT(txtSearch.Text, maDS);
-                        break;
-                    }
-                case 3:
-                    {
-                        dgvKhachHang.DataSource = KhachHangBL.Instance.GetDanhSachByMail(txtSearch.Text, maDS);
-                        break;
-                    }
-            }
-        }
-
-
 
         private void btNEW_Click(object sender, EventArgs e)
         {
@@ -189,7 +202,7 @@ namespace GUI.UserControls
                             khDTO.DaXoa = true;
                             KhachHangBL.Instance.XoaKhachHang(khDTO);
                         }
-                        MessageBox.Show("Xóa khách hàng thành công!");
+                        this.Alert("Xóa thành công...", frmPopupNotification.enmType.Success);
                         load();
                     }
                 }
@@ -244,9 +257,38 @@ namespace GUI.UserControls
             cboxTinhTrang.Checked = (Boolean)dgvKhachHang.SelectedRows[0].Cells["Đã xóa"].Value;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        public void Alert(string msg, frmPopupNotification.enmType type)
         {
+            frmPopupNotification frm = new frmPopupNotification();
+            frm.TopMost = true;
+            frm.showAlert(msg, type);
+        }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            switch (cbbSearch.SelectedIndex)
+            {
+                case 0:
+                    {
+                        dgvKhachHang.DataSource = KhachHangBL.Instance.GetDanhSachByName(txtSearch.Text, maDS);
+                        break;
+                    }
+                case 1:
+                    {
+                        dgvKhachHang.DataSource = KhachHangBL.Instance.GetDanhSachByDC(txtSearch.Text, maDS);
+                        break;
+                    }
+                case 2:
+                    {
+                        dgvKhachHang.DataSource = KhachHangBL.Instance.GetDanhSachBySDT(txtSearch.Text, maDS);
+                        break;
+                    }
+                case 3:
+                    {
+                        dgvKhachHang.DataSource = KhachHangBL.Instance.GetDanhSachByMail(txtSearch.Text, maDS);
+                        break;
+                    }
+            }
         }
     }
 }
