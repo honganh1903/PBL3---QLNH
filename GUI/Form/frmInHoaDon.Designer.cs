@@ -30,6 +30,7 @@
         {
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportViewer3 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -50,11 +51,20 @@
             this.reportViewer2.Size = new System.Drawing.Size(632, 560);
             this.reportViewer2.TabIndex = 1;
             // 
+            // reportViewer3
+            // 
+            this.reportViewer3.Location = new System.Drawing.Point(424, 173);
+            this.reportViewer3.Name = "reportViewer3";
+            this.reportViewer3.ServerReport.BearerToken = null;
+            this.reportViewer3.Size = new System.Drawing.Size(8, 25);
+            this.reportViewer3.TabIndex = 2;
+            // 
             // frmInHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 560);
+            this.Controls.Add(this.reportViewer3);
             this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.reportViewer1);
             this.ForeColor = System.Drawing.SystemColors.Control;
@@ -70,5 +80,6 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer3;
     }
 }

@@ -128,7 +128,7 @@ namespace DAL
         #endregion
 
         #region Lấy Danh Sách Sản Phẩm Theo Bộ Lọc
-        public DataTable GetDanhSachSanPhamTheoBoLoc(string TENSP, string MALOAISP, string MANCC)
+        public DataTable GetDanhSachSanPhamTheoBoLoc(string TENSP, string MALOAISP)
         {
             try
             {
@@ -136,54 +136,30 @@ namespace DAL
                 string sql = "";
                 if (TENSP != "")
                 {
-                    if (MALOAISP == "-1" && MANCC == "-1")
+                    if (MALOAISP == "-1")
                     {
                         sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT' , DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND NGUNGKINHDOANH='0'";//
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
-                    else if (MALOAISP != "-1" && MANCC == "-1")
+                    else if (MALOAISP != "-1")
                     {
                         sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND MALOAISP LIKE '%" + MALOAISP + "%' AND NGUNGKINHDOANH='0'";
-                        dt = new DataTable();
-                        dt = DataAccess.GetTable(sql);
-                    }
-                    else if (MALOAISP == "-1" && MANCC != "-1")
-                    {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
-                        dt = new DataTable();
-                        dt = DataAccess.GetTable(sql);
-                    }
-                    else if (MALOAISP != "-1" && MANCC != "-1")
-                    {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE TENSP LIKE N'%" + TENSP + "%' AND MALOAISP LIKE '%" + MALOAISP + "%' AND MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
                 }
                 else
                 {
-                    if (MALOAISP == "-1" && MANCC == "-1")
+                    if (MALOAISP == "-1")
                     {
                         sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE NGUNGKINHDOANH='0'";
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }
-                    else if (MALOAISP != "-1" && MANCC == "-1")
+                    else if (MALOAISP != "-1")
                     {
                         sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE MALOAISP LIKE '%" + MALOAISP + "%' AND NGUNGKINHDOANH='0'";
-                        dt = new DataTable();
-                        dt = DataAccess.GetTable(sql);
-                    }
-                    else if (MALOAISP == "-1" && MANCC != "-1")
-                    {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT', DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
-                        dt = new DataTable();
-                        dt = DataAccess.GetTable(sql);
-                    }
-                    else if (MALOAISP != "-1" && MANCC != "-1")
-                    {
-                        sql = "SELECT MASP as N'Mã SP',TENSP as N'Tên SP',MALOAISP as N'Mã Loại SP',DVT as N'ĐVT',DONGIABAN as N'Đơn Giá Bán',KHUYENMAI as N'Khuyến Mãi',HINHANH as N'Hình Ảnh' FROM SanPham WHERE MALOAISP LIKE '%" + MALOAISP + "%' AND MANCC LIKE '%" + MANCC + "%' AND NGUNGKINHDOANH='0'";
                         dt = new DataTable();
                         dt = DataAccess.GetTable(sql);
                     }

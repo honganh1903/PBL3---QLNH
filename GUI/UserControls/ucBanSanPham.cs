@@ -61,7 +61,7 @@ namespace GUI.UserControls
         private void LoadDanhSachSanPhamTheoBoLoc(int numpage)
         {
             flowLayoutPanelSanPham.Controls.Clear();
-            DataTable dt = SanPhamBL.Instance.GetDanhSachSanPhamTheoBoLoc(txtTenSP.Text.Trim(), cboLocLoaiSP.SelectedValue.ToString().Trim(), cboLocNCC.SelectedValue.ToString().Trim());
+            DataTable dt = SanPhamBL.Instance.GetDanhSachSanPhamTheoBoLoc(txtTenSP.Text.Trim(), cboLocLoaiSP.SelectedValue.ToString().Trim());
 
             int soDongTrenTrang = 8;
             int soTrang = dt.Rows.Count / soDongTrenTrang;

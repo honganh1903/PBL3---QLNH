@@ -31,18 +31,6 @@ namespace GUI.UserControls
             frmNCC frm = new frmNCC();
             frm.ShowDialog();
         }
-        private void LoadCboLocNCC()
-        {
-            DataTable dt = NCCBL.Instance.GetDanhSachNCC();
-            DataRow dr = dt.NewRow();
-            dr["Mã NCC"] = "-1";
-            dr["Tên NCC"] = "Tất cả";
-            dt.Rows.Add(dr);
-            cboLocNCC.DataSource = dt;
-            cboLocNCC.DisplayMember = "Tên NCC";
-            cboLocNCC.ValueMember = "Mã NCC";
-            cboLocNCC.SelectedIndex = cboLocNCC.Items.Count - 1;
-        }
 
         private void LoadCboNCC()
         {
@@ -57,13 +45,12 @@ namespace GUI.UserControls
             LoadCboDVT();
             LoadCboNCC();
             LoadCboLocLoaiSP();
-            LoadCboLocNCC();
             LoadDataGridViewTheoBoLoc();
         }
 
         private void LoadDataGridViewTheoBoLoc()
         {
-            dgvSanPham.DataSource = SanPhamBL.Instance.GetDanhSachSanPhamTheoBoLoc(txtTenSP.Text.Trim(), cboLocLoaiSP.SelectedValue.ToString().Trim(), cboLocNCC.SelectedValue.ToString().Trim());
+            dgvSanPham.DataSource = SanPhamBL.Instance.GetDanhSachSanPhamTheoBoLoc(txtTenSP.Text.Trim(), cboLocLoaiSP.SelectedValue.ToString().Trim());
             dgvSanPham.ClearSelection();
         }
         private void LoadCboLocLoaiSP()
@@ -377,7 +364,6 @@ namespace GUI.UserControls
         {
             txtTenSP.Text = "";
             cboLocLoaiSP.SelectedIndex = cboLocLoaiSP.Items.Count - 1;
-            cboLocNCC.SelectedIndex = cboLocNCC.Items.Count - 1;
         }
 
         private void txtTen_Click(object sender, EventArgs e)

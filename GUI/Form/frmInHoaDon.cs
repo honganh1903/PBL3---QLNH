@@ -28,6 +28,7 @@ namespace GUI
             this.reportViewer2.LocalReport.DataSources.Clear();
             this.reportViewer2.LocalReport.DataSources.Add(dataSource);
             this.reportViewer2.RefreshReport();
+            this.reportViewer3.RefreshReport();
         }
     }
 }

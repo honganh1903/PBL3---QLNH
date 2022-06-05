@@ -38,8 +38,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtTenSP = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.cboLocNCC = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cboLocLoaiSP = new System.Windows.Forms.ComboBox();
             this.btnLamMoi = new System.Windows.Forms.Button();
@@ -150,8 +148,6 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.panel7);
-            this.panel4.Controls.Add(this.label25);
-            this.panel4.Controls.Add(this.cboLocNCC);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.cboLocLoaiSP);
             this.panel4.Controls.Add(this.btnLamMoi);
@@ -171,13 +167,13 @@
             this.panel7.Controls.Add(this.txtTenSP);
             this.panel7.Location = new System.Drawing.Point(21, 30);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(237, 32);
+            this.panel7.Size = new System.Drawing.Size(319, 32);
             this.panel7.TabIndex = 67;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GUI.Properties.Resources.icons8_search_24px1;
-            this.pictureBox2.Location = new System.Drawing.Point(205, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(287, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 22);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -195,35 +191,12 @@
             this.txtTenSP.Size = new System.Drawing.Size(162, 22);
             this.txtTenSP.TabIndex = 9;
             // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(375, 7);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(107, 20);
-            this.label25.TabIndex = 66;
-            this.label25.Text = "Nhà cung cấp";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cboLocNCC
-            // 
-            this.cboLocNCC.BackColor = System.Drawing.Color.White;
-            this.cboLocNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.cboLocNCC.ForeColor = System.Drawing.Color.Black;
-            this.cboLocNCC.FormattingEnabled = true;
-            this.cboLocNCC.Location = new System.Drawing.Point(379, 30);
-            this.cboLocNCC.Name = "cboLocNCC";
-            this.cboLocNCC.Size = new System.Drawing.Size(109, 32);
-            this.cboLocNCC.TabIndex = 65;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(260, 7);
+            this.label8.Location = new System.Drawing.Point(373, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(113, 20);
             this.label8.TabIndex = 63;
@@ -236,7 +209,7 @@
             this.cboLocLoaiSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.cboLocLoaiSP.ForeColor = System.Drawing.Color.Black;
             this.cboLocLoaiSP.FormattingEnabled = true;
-            this.cboLocLoaiSP.Location = new System.Drawing.Point(264, 30);
+            this.cboLocLoaiSP.Location = new System.Drawing.Point(377, 30);
             this.cboLocLoaiSP.Name = "cboLocLoaiSP";
             this.cboLocLoaiSP.Size = new System.Drawing.Size(109, 32);
             this.cboLocLoaiSP.TabIndex = 60;
@@ -250,7 +223,7 @@
             this.btnLamMoi.ForeColor = System.Drawing.Color.White;
             this.btnLamMoi.Image = global::GUI.Properties.Resources.icons8_clean_32px3;
             this.btnLamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLamMoi.Location = new System.Drawing.Point(144, 65);
+            this.btnLamMoi.Location = new System.Drawing.Point(176, 65);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(114, 34);
             this.btnLamMoi.TabIndex = 62;
@@ -935,8 +908,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txtTenSP;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ComboBox cboLocNCC;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cboLocLoaiSP;
         private System.Windows.Forms.Button btnLamMoi;

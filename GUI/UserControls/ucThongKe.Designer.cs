@@ -110,7 +110,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.31507F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.68493F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 336F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 340F));
             this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel8, 2, 0);
@@ -131,7 +131,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(328, 86);
+            this.panel6.Size = new System.Drawing.Size(326, 86);
             this.panel6.TabIndex = 0;
             // 
             // lbTongSanPham
@@ -175,9 +175,9 @@
             this.panel7.Controls.Add(this.label3);
             this.panel7.Controls.Add(this.picDoanhThu);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(337, 3);
+            this.panel7.Location = new System.Drawing.Point(335, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(337, 86);
+            this.panel7.Size = new System.Drawing.Size(335, 86);
             this.panel7.TabIndex = 0;
             // 
             // lbTongDoanhThu
@@ -220,9 +220,9 @@
             this.panel8.Controls.Add(this.picKhachHang);
             this.panel8.Controls.Add(this.label4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(680, 3);
+            this.panel8.Location = new System.Drawing.Point(676, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(331, 86);
+            this.panel8.Size = new System.Drawing.Size(335, 86);
             this.panel8.TabIndex = 0;
             // 
             // lbTongKhachHang

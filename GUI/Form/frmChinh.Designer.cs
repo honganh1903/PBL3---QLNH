@@ -252,7 +252,7 @@
             this.btnNhapSanPham.Name = "btnNhapSanPham";
             this.btnNhapSanPham.Size = new System.Drawing.Size(206, 60);
             this.btnNhapSanPham.TabIndex = 19;
-            this.btnNhapSanPham.Text = "    Nhập Sản Phẩm";
+            this.btnNhapSanPham.Text = "    Nhập Kho";
             this.btnNhapSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNhapSanPham.UseVisualStyleBackColor = false;
             this.btnNhapSanPham.Click += new System.EventHandler(this.btnNhapSanPham_Click);
